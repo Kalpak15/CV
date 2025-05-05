@@ -7,7 +7,6 @@ import About from './pages/About';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
-import Footer from './components/Footer';
 import Loader from './pages/Loader';
 import Cursor from './pages/Cursor';
 import './App.css';
@@ -34,7 +33,7 @@ function App() {
           <Skills />
           <Projects />
           <Contact />
-          <Footer />
+         
         </div>
       )}
     </>
