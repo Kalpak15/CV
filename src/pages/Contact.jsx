@@ -1,186 +1,3 @@
-// import { useState, useEffect, useRef } from 'react';
-
-// function Contact() {
-//   const [formData, setFormData] = useState({
-//     name: '',
-//     email: '',
-//     message: ''
-//   });
-//   const [isSubmitting, setIsSubmitting] = useState(false);
-//   const sectionRef = useRef(null);
-  
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         if (entry.isIntersecting) {
-//           entry.target.classList.add('fade-in');
-//           observer.unobserve(entry.target);
-//         }
-//       },
-//       { threshold: 0.1 }
-//     );
-    
-//     if (sectionRef.current) {
-//       observer.observe(sectionRef.current);
-//     }
-    
-//     return () => {
-//       if (sectionRef.current) {
-//         observer.unobserve(sectionRef.current);
-//       }
-//     };
-//   }, []);
-
-//   const handleChange = (e) => {
-//     setFormData({
-//       ...formData,
-//       [e.target.name]: e.target.value
-//     });
-//   };
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     setIsSubmitting(true);
-    
-//     // Simulate form submission
-//     setTimeout(() => {
-//       console.log('Form submitted:', formData);
-//       setFormData({ name: '', email: '', message: '' });
-//       setIsSubmitting(false);
-//       alert('Message sent successfully!');
-//     }, 1500);
-//   };
-
-//   return (
-//     <section id="contact" className="py-24 bg-black" ref={sectionRef}>
-//       <div className="container mx-auto px-4">
-//         <h2 className="text-4xl font-bold mb-16 text-center">
-//           <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text">Get In Touch</span>
-//         </h2>
-        
-//         <div className="grid md:grid-cols-2 gap-16">
-//           <div>
-//             <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
-            
-//             <div className="space-y-6">
-//               <div className="flex items-start space-x-4">
-//                 <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-purple-400">
-//                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-//                   </svg>
-//                 </div>
-//                 <div>
-//                   <h4 className="text-gray-300 font-medium">Email</h4>
-//                   <a href="mailto:your.email@example.com" className="text-purple-400 hover:underline">kulkarnikalpak15@gmail.com</a>
-//                 </div>
-//               </div>
-              
-//               <div className="flex items-start space-x-4">
-//                 <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-purple-400">
-//                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-//                   </svg>
-//                 </div>
-//                 <div>
-//                   <h4 className="text-gray-300 font-medium">Phone</h4>
-//                   <a href="tel:+1234567890" className="text-purple-400 hover:underline">+91 8208370690</a>
-//                 </div>
-//               </div>
-              
-//               <div className="flex items-start space-x-4">
-//                 <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-purple-400">
-//                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-//                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-//                   </svg>
-//                 </div>
-//                 <div>
-//                   <h4 className="text-gray-300 font-medium">Location</h4>
-//                   <p className="text-purple-400">Palghar ,Maharashtra, India</p>
-//                 </div>
-//               </div>
-//             </div>
-            
-//             <div className="mt-12">
-//               <h4 className="text-gray-300 font-medium mb-4">Social Media</h4>
-//               <div className="flex space-x-4">
-//                 {['github', 'linkedin', 'twitter', 'instagram'].map((social) => (
-//                   <a 
-//                     key={social}
-//                     href="#" 
-//                     className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300"
-//                   >
-//                     <span className="sr-only">{social}</span>
-//                     <div className="w-5 h-5 rounded-full bg-current"></div>
-//                   </a>
-//                 ))}
-//               </div>
-//             </div>
-//           </div>
-          
-//           <div>
-//             <h3 className="text-2xl font-bold mb-6 text-white">Send Me a Message</h3>
-            
-//             <form onSubmit={handleSubmit} className="space-y-6">
-//               <div>
-//                 <label htmlFor="name" className="block text-gray-300 mb-2">Your Name</label>
-//                 <input 
-//                   type="text" 
-//                   id="name" 
-//                   name="name" 
-//                   value={formData.name}
-//                   onChange={handleChange}
-//                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
-//                   required
-//                 />
-//               </div>
-              
-//               <div>
-//                 <label htmlFor="email" className="block text-gray-300 mb-2">Your Email</label>
-//                 <input 
-//                   type="email" 
-//                   id="email" 
-//                   name="email"
-//                   value={formData.email}
-//                   onChange={handleChange}
-//                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
-//                   required
-//                 />
-//               </div>
-              
-//               <div>
-//                 <label htmlFor="message" className="block text-gray-300 mb-2">Your Message</label>
-//                 <textarea 
-//                   id="message" 
-//                   name="message"
-//                   value={formData.message}
-//                   onChange={handleChange}
-//                   rows="5" 
-//                   className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white resize-none"
-//                   required
-//                 ></textarea>
-//               </div>
-              
-//               <button 
-//                 type="submit" 
-//                 disabled={isSubmitting}
-//                 className="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition duration-300 disabled:opacity-70"
-//               >
-//                 {isSubmitting ? 'Sending...' : 'Send Message'}
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default Contact;
-
-
-
-
 
 import { useState, useEffect, useRef } from 'react';
 
@@ -191,13 +8,123 @@ function Contact() {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const sectionRef = useRef(null);
+  const [loaded, setLoaded] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [cursorVisible, setCursorVisible] = useState(false);
   
+  const sectionRef = useRef(null);
+  const titleRef = useRef(null);
+  const contactInfoRef = useRef(null);
+  const formRef = useRef(null);
+  const particlesRef = useRef(null);
+  
+  // Generate floating particles
+  useEffect(() => {
+    const createParticles = () => {
+      const particlesContainer = particlesRef.current;
+      if (!particlesContainer) return;
+      
+      // Clear existing particles
+      particlesContainer.innerHTML = '';
+      
+      // Create particles
+      for (let i = 0; i < 50; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random position
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        
+        // Random size
+        const size = Math.random() * 3 + 1;
+        
+        // Random opacity
+        const opacity = Math.random() * 0.5 + 0.3;
+        
+        // Random animation duration
+        const duration = Math.random() * 20 + 10;
+        
+        // Random animation delay
+        const delay = Math.random() * 5;
+        
+        // Set styles
+        particle.style.left = `${x}%`;
+        particle.style.top = `${y}%`;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.opacity = opacity;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    };
+    
+    createParticles();
+    
+    // Regenerate particles on resize
+    window.addEventListener('resize', createParticles);
+    return () => window.removeEventListener('resize', createParticles);
+  }, []);
+
+  // Initial animations and mouse tracking
+  useEffect(() => {
+    setTimeout(() => setLoaded(true), 300);
+    
+    // Track mouse position for the custom cursor
+    const handleMouseMove = (e) => {
+      setMousePosition({ x: e.clientX, y: e.clientY });
+      setCursorVisible(true);
+    };
+    
+    const handleMouseLeave = () => {
+      setCursorVisible(false);
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseleave', handleMouseLeave);
+    
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseleave', handleMouseLeave);
+    };
+  }, []);
+
+  // Parallax effect
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      const { clientX, clientY } = e;
+      const x = (clientX / window.innerWidth) - 0.5;
+      const y = (clientY / window.innerHeight) - 0.5;
+      
+      const title = titleRef.current;
+      const contactInfo = contactInfoRef.current;
+      const form = formRef.current;
+      
+      if (title) {
+        title.style.transform = `translate3d(${x * 15}px, ${y * 15}px, 0)`;
+      }
+      
+      if (contactInfo) {
+        contactInfo.style.transform = `translate3d(${x * 10}px, ${y * 10}px, 0)`;
+      }
+      
+      if (form) {
+        form.style.transform = `translate3d(${x * -10}px, ${y * -10}px, 0) rotateY(${x * 2}deg) rotateX(${y * -2}deg)`;
+      }
+    };
+    
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
+  // Intersection Observer for fade-in effect
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
+          setLoaded(true);
           observer.unobserve(entry.target);
         }
       },
@@ -236,61 +163,101 @@ function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-black" ref={sectionRef}>
-      <div className="container mx-auto px-4">
-        <h2 className="text-4xl font-bold mb-16 text-center">
-          <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text">Get In Touch</span>
+    <section 
+      id="contact" 
+      className="min-h-screen bg-black relative overflow-hidden flex items-center"
+      ref={sectionRef}
+    >
+      {/* Custom cursor */}
+      <div 
+        className="fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100"
+        style={{
+          left: `${mousePosition.x}px`,
+          top: `${mousePosition.y}px`,
+          transform: 'translate(-50%, -50%)',
+          opacity: cursorVisible ? 1 : 0,
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%)'
+        }}
+      ></div>
+      
+      {/* Floating particles */}
+      <div ref={particlesRef} className="absolute inset-0 overflow-hidden"></div>
+      
+      {/* Animated background */}
+      <div className="absolute inset-0 w-full h-full">
+        <div className="animate-blurFloat absolute top-1/4 -left-10 w-96 h-96 bg-purple-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        <div className="animate-blurFloat animation-delay-2000 absolute -bottom-24 -right-10 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        <div className="animate-blurFloat animation-delay-4000 absolute bottom-1/3 left-1/4 w-96 h-96 bg-pink-700 rounded-full mix-blend-multiply filter blur-3xl opacity-30"></div>
+        
+        {/* Animated grid */}
+        <div className="absolute inset-0 grid-bg"></div>
+      </div>
+      
+      <div className="container mx-auto px-4 py-16 relative z-10">
+        <h2 
+          ref={titleRef}
+          className={`text-5xl font-bold mb-16 text-center transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
+          style={{ transitionDelay: '300ms' }}
+        >
+          <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text relative inline-block">
+            Contact Me
+            <span className="absolute -bottom-1 left-0 w-full h-1 bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 transform scale-x-0 animate-line-grow"></span>
+          </span>
         </h2>
         
         <div className="grid md:grid-cols-2 gap-16">
-          <div>
+          <div 
+            ref={contactInfoRef}
+            className={`transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
+            style={{ transitionDelay: '500ms' }}
+          >
             <h3 className="text-2xl font-bold mb-6 text-white">Contact Information</h3>
             
             <div className="space-y-6">
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-purple-400">
+              <div className="flex items-start space-x-4 group">
+                <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-purple-400 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 group-hover:text-white transition-all duration-300">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                <div>
+                <div className="transform group-hover:translate-x-2 transition-transform duration-300">
                   <h4 className="text-gray-300 font-medium">Email</h4>
-                  <a href="mailto:your.email@example.com" className="text-purple-400 hover:underline">kulkarnikalpak15@gmail.com</a>
+                  <a href="mailto:kulkarnikalpak15@gmail.com" className="text-purple-400 hover:text-purple-300 transition-colors duration-300">kulkarnikalpak15@gmail.com</a>
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-purple-400">
+              <div className="flex items-start space-x-4 group">
+                <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-purple-400 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 group-hover:text-white transition-all duration-300">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                   </svg>
                 </div>
-                <div>
+                <div className="transform group-hover:translate-x-2 transition-transform duration-300">
                   <h4 className="text-gray-300 font-medium">Phone</h4>
-                  <a href="tel:+1234567890" className="text-purple-400 hover:underline">+91 8208370690</a>
+                  <a href="tel:+918208370690" className="text-purple-400 hover:text-purple-300 transition-colors duration-300">+91 8208370690</a>
                 </div>
               </div>
               
-              <div className="flex items-start space-x-4">
-                <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-purple-400">
+              <div className="flex items-start space-x-4 group">
+                <div className="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center text-purple-400 group-hover:bg-gradient-to-r group-hover:from-purple-600 group-hover:to-blue-600 group-hover:text-white transition-all duration-300">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                <div>
+                <div className="transform group-hover:translate-x-2 transition-transform duration-300">
                   <h4 className="text-gray-300 font-medium">Location</h4>
                   <p className="text-purple-400">Palghar, Maharashtra, India</p>
                 </div>
               </div>
             </div>
             
-            <div className="mt-12">
+            <div className={`mt-12 transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '700ms' }}>
               <h4 className="text-gray-300 font-medium mb-4">Social Media</h4>
               <div className="flex space-x-4">
                 <a 
                   href="https://github.com" 
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110"
                 >
                   <span className="sr-only">GitHub</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
@@ -299,25 +266,25 @@ function Contact() {
                 </a>
                 <a 
                   href="https://linkedin.com" 
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110"
                 >
                   <span className="sr-only">LinkedIn</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-1.337-.027-3.063-1.854-3.063-1.854 0-2.136 1.445-2.136 2.939v5.728h-3v-11h2.893v1.504h.041c.402-.762 1.385-1.564 2.854-1.564 3.051 0 3.612 2.006 3.612 4.612v6.448z"/>
                   </svg>
                 </a>
-                <a 
+                {/* <a 
                   href="https://twitter.com" 
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110"
                 >
                   <span className="sr-only">Twitter</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M24 4.557a9.83 9.83 0 01-2.828.775 4.932 4.932 0 002.165-2.724 9.864 9.864 0 01-3.127 1.195 4.916 4.916 0 00-8.379 4.482A13.944 13.944 0 011.671 3.149a4.916 4.916 0 001.523 6.557 4.897 4.897 0 01-2.229-.616v.062a4.916 4.916 0 003.946 4.827 4.902 4.902 0 01-2.224.084 4.916 4.916 0 004.586 3.414A9.867 9.867 0 010 19.54a13.913 13.913 0 007.548 2.212c9.057 0 14.01-7.503 14.01-14.01 0-.213-.005-.426-.014-.637A10.025 10.025 0 0024 4.557z"/>
                   </svg>
-                </a>
+                </a> */}
                 <a 
                   href="https://instagram.com" 
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300"
+                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110"
                 >
                   <span className="sr-only">Instagram</span>
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
@@ -328,60 +295,129 @@ function Contact() {
             </div>
           </div>
           
-          <div>
-            <h3 className="text-2xl font-bold mb-6 text-white">Send Me a Message</h3>
-            
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label htmlFor="name" className="block text-gray-300 mb-2">Your Name</label>
-                <input 
-                  type="text" 
-                  id="name" 
-                  name="name" 
-                  value={formData.name}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
-                  required
-                />
-              </div>
+          <div 
+            ref={formRef}
+            className={`transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
+            style={{ transitionDelay: '700ms', perspective: '1000px' }}
+          >
+            <div className="relative p-6 bg-gray-900/50 backdrop-blur-lg rounded-2xl border border-gray-800 shadow-xl overflow-hidden group">
+              {/* Animated border glow */}
+              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-xl opacity-20 group-hover:opacity-40 blur transition-opacity duration-500"></div>
               
-              <div>
-                <label htmlFor="email" className="block text-gray-300 mb-2">Your Email</label>
-                <input 
-                  type="email" 
-                  id="email" 
-                  name="email"
-                  value={formData.email}
-                  onChange={handleChange}
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white"
-                  required
-                />
-              </div>
+              <h3 className="text-2xl font-bold mb-6 text-white relative z-10">Send Me a Message</h3>
               
-              <div>
-                <label htmlFor="message" className="block text-gray-300 mb-2">Your Message</label>
-                <textarea 
-                  id="message" 
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  rows="5" 
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white resize-none"
-                  required
-                ></textarea>
-              </div>
-              
-              <button 
-                type="submit" 
-                disabled={isSubmitting}
-                className="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition duration-300 disabled:opacity-70"
-              >
-                {isSubmitting ? 'Sending...' : 'Send Message'}
-              </button>
-            </form>
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
+                <div className="group">
+                  <label htmlFor="name" className="block text-gray-300 mb-2">Your Name</label>
+                  <input 
+                    type="text" 
+                    id="name" 
+                    name="name" 
+                    value={formData.name}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-800/80 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white transition-all duration-300 group-hover:border-purple-500/50"
+                    required
+                  />
+                </div>
+                
+                <div className="group">
+                  <label htmlFor="email" className="block text-gray-300 mb-2">Your Email</label>
+                  <input 
+                    type="email" 
+                    id="email" 
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className="w-full px-4 py-3 bg-gray-800/80 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white transition-all duration-300 group-hover:border-purple-500/50"
+                    required
+                  />
+                </div>
+                
+                <div className="group">
+                  <label htmlFor="message" className="block text-gray-300 mb-2">Your Message</label>
+                  <textarea 
+                    id="message" 
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows="5" 
+                    className="w-full px-4 py-3 bg-gray-800/80 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 text-white resize-none transition-all duration-300 group-hover:border-purple-500/50"
+                    required
+                  ></textarea>
+                </div>
+                
+                <button 
+                  type="submit" 
+                  disabled={isSubmitting}
+                  className="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-lg hover:shadow-lg hover:shadow-purple-500/30 transition duration-300 disabled:opacity-70 relative overflow-hidden group"
+                >
+                  <span className="relative z-10 flex items-center justify-center">
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                  </span>
+                  <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                  <span className="absolute top-0 left-0 w-full h-full bg-white/30 skew-x-45 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
+      
+      {/* Custom CSS */}
+      <style jsx>{`
+        .grid-bg {
+          background-size: 50px 50px;
+          background-image: 
+            linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+          mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 80%);
+        }
+        
+        @keyframes blurFloat {
+          0% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(-5%, 5%) scale(1.1); }
+          66% { transform: translate(5%, -5%) scale(0.9); }
+          100% { transform: translate(0, 0) scale(1); }
+        }
+        
+        .animate-blurFloat {
+          animation: blurFloat 15s ease-in-out infinite;
+        }
+        
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+        
+        @keyframes line-grow {
+          0% { transform: scaleX(0); transform-origin: left; }
+          50% { transform: scaleX(1); transform-origin: left; }
+          50.1% { transform: scaleX(1); transform-origin: right; }
+          100% { transform: scaleX(0); transform-origin: right; }
+        }
+        
+        .animate-line-grow {
+          animation: line-grow 5s ease-in-out infinite;
+          animation-delay: 1s;
+        }
+        
+        .particle {
+          position: absolute;
+          background-color: white;
+          border-radius: 50%;
+          opacity: 0.3;
+          animation: float-up 15s linear infinite;
+        }
+        
+        @keyframes float-up {
+          0% { transform: translateY(100vh) translateX(0) scale(1); }
+          50% { transform: translateY(50vh) translateX(20px) scale(1.2); }
+          100% { transform: translateY(0) translateX(0) scale(0.8); opacity: 0; }
+        }
+      `}</style>
     </section>
   );
 }

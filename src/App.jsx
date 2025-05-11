@@ -9,6 +9,7 @@ import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Loader from './pages/Loader';
 import Cursor from './pages/Cursor';
+import AchievementsCertifications from './pages/Acheivments';
 import './App.css';
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
           <About />
           <Skills />
           <Projects />
+          <AchievementsCertifications/>
           <Contact />
          
         </div>

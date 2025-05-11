@@ -1,3 +1,4 @@
+
 // import { useEffect, useRef, useState } from 'react';
 // import { ChevronDown, ExternalLink, User, Mail, Code, Send } from 'lucide-react';
 
@@ -165,7 +166,7 @@
 //     typeChar();
 //   };
 
-//   // Handle typing animation for role text - fixed role text animation
+//   // FIXED: Improved role text animation for better completion
 //   useEffect(() => {
 //     let isTyping = true;
 //     let charIndex = 0;
@@ -179,12 +180,12 @@
 //           setCurrentRoleText(roleText.substring(0, charIndex));
 //           charIndex++;
           
-//           // Continue typing
-//           timer = setTimeout(updateText, 100);
+//           // Continue typing - slowed down for better readability
+//           timer = setTimeout(updateText, 70);
 //         } else {
-//           // Finished typing, pause before erasing
+//           // Finished typing, pause before erasing (increased pause time)
 //           isTyping = false;
-//           timer = setTimeout(updateText, 2000);
+//           timer = setTimeout(updateText, 3000);
 //         }
 //       } else {
 //         // Erasing mode
@@ -192,12 +193,14 @@
 //           charIndex--;
 //           setCurrentRoleText(roleText.substring(0, charIndex));
           
-//           // Continue erasing
-//           timer = setTimeout(updateText, 50);
+//           // Continue erasing - slowed down slightly
+//           timer = setTimeout(updateText, 40);
 //         } else {
-//           // Finished erasing, move to next role
+//           // Finished erasing, move to next role with a pause before starting
 //           isTyping = true;
 //           setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
+//           // Add pause before starting next role
+//           timer = setTimeout(updateText, 800);
 //         }
 //       }
 //     };
@@ -329,8 +332,9 @@
 //       </div>
       
 //       {/* Main content */}
-//       <div className="container mx-auto px-4 z-10 relative">
-//         <div className="text-center md:text-left max-w-2xl">
+//             {/* Main content */}
+//             <div className="container mx-auto px-4 z-10 relative">
+//         <div className="text-center md:text-left max-w-3xl">
 //           <h2 
 //             ref={subtitleRef} 
 //             className={`text-xl md:text-2xl font-light text-gray-300 mb-4 transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
@@ -339,10 +343,10 @@
 //             <span className="inline-block animate-shimmer">Hello, I'm</span>
 //           </h2>
           
-//           {/* Improved name styling */}
+//           {/* FIXED: Improved name styling with proper whitespace handling and width */}
 //           <h1 
 //             ref={titleRef} 
-//             className={`text-5xl md:text-8xl font-bold mb-8 transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
+//             className={`text-5xl md:text-7xl lg:text-8xl font-bold mb-8 transition-all duration-1000 ease-out whitespace-nowrap ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
 //             style={{ transitionDelay: '600ms' }}
 //           >
 //             <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text relative inline-block">
@@ -351,19 +355,21 @@
 //             </span>
 //           </h1>
           
-//           {/* Fixed role text animation */}
+//           {/* FIXED: Improved role text animation container with better height and width handling */}
 //           <div 
-//             className={`text-xl md:text-3xl text-gray-300 mb-12 h-12 flex items-center md:justify-start justify-center transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
+//             className={`text-xl md:text-3xl text-gray-300 mb-12 h-16 flex items-center md:justify-start justify-center transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
 //             style={{ transitionDelay: '900ms' }}
 //           >
 //             <span className="typing-indicator">I'm a </span>
-//             <span 
-//               ref={roleTextRef} 
-//               className="typing-text ml-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
-//             >
-//               {currentRoleText}
-//             </span>
-//             <span className={`inline-block w-0.5 h-8 bg-white ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'}`}></span>
+//             <div className="min-w-40 ml-2">
+//               <span 
+//                 ref={roleTextRef} 
+//                 className="typing-text text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400"
+//               >
+//                 {currentRoleText}
+//               </span>
+//               <span className={`inline-block w-0.5 h-8 bg-white ml-1 ${showCursor ? 'opacity-100' : 'opacity-0'}`}></span>
+//             </div>
 //           </div>
           
 //           <div 
@@ -453,24 +459,144 @@
 //             className={`mt-16 md:mt-12 flex justify-center md:justify-start gap-6 transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
 //             style={{ transitionDelay: '1500ms' }}
 //           >
-//             {['github', 'linkedin', 'twitter', 'instagram'].map((social, index) => (
-//               <a 
-//                 key={social} 
-//                 href={`#${social}`}
-//                 className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
-//                 style={{ animationDelay: `${index * 0.2}s` }}
-//               >
-//                 <span className="sr-only">{social}</span>
-//                 {/* Using circle as placeholder */}
-//                 <div className="w-4 h-4 rounded-full bg-gradient-to-tr from-purple-500 to-blue-500"></div>
-//               </a>
-//             ))}
-//           </div>
+//             {/* <a 
+//               href="https://github.com"
+//               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//               style={{ animationDelay: '0s' }}
+//             >
+//               <span className="sr-only">GitHub</span>
+//               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+//                 <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.113.793-.26.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.304.762-1.604-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.467-2.381 1.236-3.221-.123-.304-.535-1.527.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.98-.399 3-.405 1.02.006 2.043.139 3 .405 2.29-1.552 3.297-1.23 3.297-1.23.653 1.649.242 2.872.118 3.176.77.84 1.236 1.911 1.236 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+//               </svg>
+//             </a>
+//             <a 
+//               href="https://linkedin.com"
+//               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//               style={{ animationDelay: '0.2s' }}
+//             >
+//               <span className="sr-only">LinkedIn</span>
+//               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+//                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-1.337-.027-3.063-1.854-3.063-1.854 0-2.136 1.445-2.136 2.939v5.728h-3v-11h2.893v1.504h.041c.402-.762 1.385-1.564 2.854-1.564 3.051 0 3.612 2.006 3.612 4.612v6.448z"/>
+//               </svg>
+//             </a>
+//             <a 
+//               href="https://x.com"
+//               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//               style={{ animationDelay: '0.4s' }}
+//             >
+//               <span className="sr-only">X</span>
+//               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+//                 <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+//               </svg>
+//             </a>
+//             <a 
+//               href="https://instagram.com"
+//               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//               style={{ animationDelay: '0.6s' }}
+//             >
+//               <span className="sr-only">Instagram</span>
+//               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+//                 <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.906.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.936 3.236.63 4.025c-.297.765-.498 1.635-.558 2.913C.015 8.217 0 8.624 0 11.884v.232c0 3.26.015 3.667.072 4.947.06 1.278.261 2.148.558 2.913.306.789.717 1.459 1.384 2.126s1.337 1.078 2.126 1.384c.765.297 1.635.498 2.913.558 1.28.057 1.687.072 4.947.072s3.667-.015 4.947-.072c1.278-.06 2.148-.261 2.913-.558.789-.306 1.459-.717 2.126-1.384s1.078-1.337 1.384-2.126c.297-.765.498-1.635.558-2.913.057-1.28.072-1.687.072-4.947v-.232c0-3.26-.015-3.667-.072-4.947-.06-1.278-.261-2.148-.558-2.913-.306-.789-.717-1.459-1.384-2.126S20.764.936 19.975.63c-.765-.297-1.635-.498-2.913-.558C15.782.015 15.375 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.9.423.422.683.82.9 1.382.166.422.36 1.057.415 2.227.055 1.265.07 1.647.07 4.85s-.016 3.585-.071 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.9 1.382-.422.423-.82.683-1.382.9-.422.166-1.057.36-2.227.415-1.265.055-1.647.07-4.85.07s-3.585-.016-4.85-.071c-1.17-.055-1.805-.249-2.227-.415-.562-.217-.96-.477-1.382-.9-.423-.422-.683-.82-.9-1.382-.166-.422-.36-1.057-.415-2.227-.055-1.265-.07-1.647-.07-4.85s.016-3.585.071-4.85c.055-1.17.249-1.805.415-2.227.217-.562.477-.96.9-1.382.422-.423.82-.683 1.382-.9.422-.166 1.057-.36 2.227-.415 1.265-.055 1.647-.07 4.85-.07zm0 3.333a6.5 6.5 0 100 13 6.5 6.5 0 000-13zm0 10.834a4.333 4.333 0 110-8.667 4.333 4.333 0 010 8.667zm6.834-11.167a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+//               </svg>
+//             </a>
+//             <a 
+//               href="https://leetcode.com/u/kulkarnikalpak15/"
+//               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//               style={{ animationDelay: '0.6s' }}
+//             >
+//               <span className="sr-only">Leetcode</span>
+//               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+//                 <path d="M8.5 10c.3.3.6.5 1 .6.4.1.8.1 1.2.1.1 0 .3 0 .4-.1.1 0 .3-.1.4-.2.1-.1.2-.2.2-.4.1-.1.1-.3.1-.5 0-.4-.2-.7-.5-.8-.4-.2-.8-.3-1.3-.4-.2-.1-.5-.1-.7-.2-.2-.1-.5-.1-.7-.2-.2-.1-.5-.2-.7-.3-.2-.1-.4-.3-.6-.5-.2-.2-.3-.5-.4-.8-.1-.3-.1-.7-.1-1.1 0-.6.1-1.1.3-1.5.2-.4.5-.7.8-1 .3-.2.7-.4 1.1-.5.4-.1.8-.2 1.2-.2.5 0 1 0 1.5.1.5.1.9.3 1.3.6l-1.2 1.8c-.2-.2-.5-.3-.8-.4-.3-.1-.6-.2-.9-.2-.4 0-.7.1-.9.2-.2.1-.3.3-.3.6 0 .1 0 .3.1.4.1.1.2.2.3.2.1.1.3.1.4.2.2 0 .3.1.5.1.5.1 1 .3 1.4.4.4.1.8.3 1.1.5.3.2.6.5.7.8.2.3.3.8.3 1.3 0 .6-.1 1.1-.3 1.5-.2.4-.5.8-.9 1.1-.4.3-.8.5-1.3.6-.5.1-1 .2-1.6.2-.6 0-1.2-.1-1.7-.2-.6-.1-1-.3-1.4-.6l1.1-1.9zm12.4 5.5c-.6.6-1.4.9-2.3.9s-1.6-.3-2.3-.9l-1.5-1.5c-.3-.3-.6-.5-1-.6-.4-.1-.8-.1-1.2-.1-.1 0-.3 0-.4.1-.1 0-.3.1-.4.2-.1.1-.2.2-.2.4-.1.1-.1.3-.1.5 0 .4.2.7.5.8.4.2.8.3 1.3.4.2.1.5.1.7.2.2.1.5.1.7.2.2.1.5.2.7.3.2.1.4.3.6.5.2.2.3.5.4.8.1.3.1.7.1 1.1 0 .6-.1 1.1-.3 1.5-.2.4-.5.7-.8 1-.3.2-.7.4-1.1.5-.4.1-.8.2-1.2.2-.5 0-1 0-1.5-.1-.5-.1-.9-.3-1.3-.6l1.2-1.8c.2.2.5.3.8.4.3.1.6.2.9.2.4 0 .7-.1.9-.2.2-.1.3-.3.3-.6 0-.2 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.1-.1-.3-.1-.4-.2-.2 0-.3-.1-.5-.1-.5-.1-1-.3-1.4-.4-.4-.1-.8-.3-1.1-.5-.3-.2-.6-.5-.7-.8-.2-.3-.3-.8-.3-1.3 0-.6.1-1.1.3-1.5.2-.4.5-.8.9-1.1.4-.3.8-.5 1.3-.6.5-.1 1-.2 1.6-.2.6 0 1.2.1 1.7.2.6.1 1 .3 1.4.6L17 15c-.3-.3-.6-.5-1-.6-.4-.1-.8-.1-1.2-.1-.1 0-.3 0-.4.1-.1 0-.3.1-.4.2-.1.1-.2.2-.2.4-.1.1-.1.3-.1.5 0 .4.2.7.5.8.4.2.8.3 1.3.4.2.1.5.1.7.2.2.1.5.1.7.2.2.1.5.2.7.3.2.1.4.3.6.5.2.2.3.5.4.8.1.3.1.7.1 1.1 0 .6-.1 1.1-.3 1.5-.2.4-.5.7-.8 1-.3.2-.7.4-1.1.5-.4.1-.8.2-1.2.2-.5 0-1 0-1.5-.1-.5-.1-.9-.3-1.3-.6l1.2-1.8c.2.2.5.3.8.4.3.1.6.2.9.2.4 0 .7-.1.9-.2.2-.1.3-.3.3-.6 0-.2 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.1-.1-.3-.1-.4-.2-.2 0-.3-.1-.5-.1-.5-.1-1-.3-1.4-.4-.4-.1-.8-.3-1.1-.5-.3-.2-.6-.5-.7-.8-.2-.3-.3-.8-.3-1.3 0-.6.1-1.1.3-1.5.2-.4.5-.8.9-1.1.4-.3.8-.5 1.3-.6.5-.1 1-.2 1.6-.2.6 0 1.2.1 1.7.2.6.1 1 .3 1.4.6l-1.1 1.9c-.3-.3-.6-.5-1-.6-.4-.1-.8-.1-1.2-.1-.1 0-.3 0-.4.1-.1 0-.3.1-.4.2-.1.1-.2.2-.2.4-.1.1-.1.3-.1.5 0 .4.2.7.5.8.4.2.8.3 1.3.4.2.1.5.1.7.2.2.1.5.1.7.2.2.1.5.2.7.3.2.1.4.3.6.5.2.2.3.5.4.8.1.3.1.7.1 1.1 0 .6-.1 1.1-.3 1.5-.2.4-.5.7-.8 1-.3.2-.7.4-1.1.5-.4.1-.8.2-1.2.2-.5 0-1 0-1.5-.1-.5-.1-.9-.3-1.3-.6l1.2-1.8c.2.2.5.3.8.4.3.1.6.2.9.2.4 0 .7-.1.9-.2.2-.1.3-.3.3-.6 0-.1 0-.3-.1-.4-.1-.1-.2-.2-.3-.2-.1-.1-.3-.1-.4-.2-.2 0-.3-.1-.5-.1-.5-.1-1-.3-1.4-.4-.4-.1-.8-.3-1.1-.5-.3-.2-.6-.5-.7-.8-.2-.3-.3-.8-.3-1.3 0-.6.1-1.1.3-1.5.2-.4.5-.8.9-1.1.4-.3.8-.5 1.3-.6.5-.1 1-.2 1.6-.2.6 0 1.2.1 1.7.2.6.1 1 .3 1.4.6l-1.1 1.9z"/>
+//               </svg>
+//             </a>
+//             <a 
+//               href="https://www.geeksforgeeks.org/user/kulkarniko6yz/"
+//               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//               style={{ animationDelay: '0.6s' }}
+//             >
+//               <span className="sr-only">GeeksforGeeks</span>
+//               <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" vaiewBox="0 0 24 24" fill="currentColor">
+//                 <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.906.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.936 3.236.63 4.025c-.297.765-.498 1.635-.558 2.913C.015 8.217 0 8.624 0 11.884v.232c0 3.26.015 3.667.072 4.947.06 1.278.261 2.148.558 2.913.306.789.717 1.459 1.384 2.126s1.337 1.078 2.126 1.384c.765.297 1.635.498 2.913.558 1.28.057 1.687.072 4.947.072s3.667-.015 4.947-.072c1.278-.06 2.148-.261 2.913-.558.789-.306 1.459-.717 2.126-1.384s1.078-1.337 1.384-2.126c.297-.765.498-1.635.558-2.913.057-1.28.072-1.687.072-4.947v-.232c0-3.26-.015-3.667-.072-4.947-.06-1.278-.261-2.148-.558-2.913-.306-.789-.717-1.459-1.384-2.126S20.764.936 19.975.63c-.765-.297-1.635-.498-2.913-.558C15.782.015 15.375 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.9.423.422.683.82.9 1.382.166.422.36 1.057.415 2.227.055 1.265.07 1.647.07 4.85s-.016 3.585-.071 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.9 1.382-.422.423-.82.683-1.382.9-.422.166-1.057.36-2.227.415-1.265.055-1.647.07-4.85.07s-3.585-.016-4.85-.071c-1.17-.055-1.805-.249-2.227-.415-.562-.217-.96-.477-1.382-.9-.423-.422-.683-.82-.9-1.382-.166-.422-.36-1.057-.415-2.227-.055-1.265-.07-1.647-.07-4.85s.016-3.585.071-4.85c.055-1.17.249-1.805.415-2.227.217-.562.477-.96.9-1.382.422-.423.82-.683 1.382-.9.422-.166 1.057-.36 2.227-.415 1.265-.055 1.647-.07 4.85-.07zm0 3.333a6.5 6.5 0 100 13 6.5 6.5 0 000-13zm0 10.834a4.333 4.333 0 110-8.667 4.333 4.333 0 010 8.667zm6.834-11.167a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+//               </svg>
+//             </a> */}
+//             <a 
+//   href="https://github.com"
+//   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//   style={{ animationDelay: '0s' }}
+// >
+//   <span className="sr-only">GitHub</span>
+//   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+//     <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.207 11.387.6.113.793-.26.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.304.762-1.604-2.665-.304-5.466-1.332-5.466-5.93 0-1.31.467-2.381 1.236-3.221-.123-.304-.535-1.527.117-3.176 0 0 1.008-.322 3.3 1.23.957-.266 1.98-.399 3-.405 1.02.006 2.043.139 3 .405 2.29-1.552 3.297-1.23 3.297-1.23.653 1.649.242 2.872.118 3.176.77.84 1.236 1.911 1.236 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.63-5.37-12-12-12z"/>
+//   </svg>
+// </a>
+// <a 
+//   href="https://linkedin.com"
+//   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//   style={{ animationDelay: '0.2s' }}
+// >
+//   <span className="sr-only">LinkedIn</span>
+//   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+//     <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-1.337-.027-3.063-1.854-3.063-1.854 0-2.136 1.445-2.136 2.939v5.728h-3v-11h2.893v1.504h.041c.402-.762 1.385-1.564 2.854-1.564 3.051 0 3.612 2.006 3.612 4.612v6.448z"/>
+//   </svg>
+// </a>
+// {/* <a 
+//   href="https://x.com"
+//   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//   style={{ animationDelay: '0.4s' }}
+// >
+//   <span className="sr-only">X</span>
+//   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+//     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+//   </svg>
+// </a> */}
+// <a 
+//   href="https://instagram.com"
+//   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//   style={{ animationDelay: '0.6s' }}
+// >
+//   <span className="sr-only">Instagram</span>
+//   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+//     <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.906.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.936 3.236.63 4.025c-.297.765-.498 1.635-.558 2.913C.015 8.217 0 8.624 0 11.884v.232c0 3.26.015 3.667.072 4.947.06 1.278.261 2.148.558 2.913.306.789.717 1.459 1.384 2.126s1.337 1.078 2.126 1.384c.765.297 1.635.498 2.913.558 1.28.057 1.687.072 4.947.072s3.667-.015 4.947-.072c1.278-.06 2.148-.261 2.913-.558.789-.306 1.459-.717 2.126-1.384s1.078-1.337 1.384-2.126c.297-.765.498-1.635.558-2.913.057-1.28.072-1.687.072-4.947v-.232c0-3.26-.015-3.667-.072-4.947-.06-1.278-.261-2.148-.558-2.913-.306-.789-.717-1.459-1.384-2.126S20.764.936 19.975.63c-.765-.297-1.635-.498-2.913-.558C15.782.015 15.375 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.9.423.422.683.82.9 1.382.166.422.36 1.057.415 2.227.055 1.265.07 1.647.07 4.85s-.016 3.585-.071 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.9 1.382-.422.423-.82.683-1.382.9-.422.166-1.057.36-2.227.415-1.265.055-1.647.07-4.85.07s-3.585-.016-4.85-.071c-1.17-.055-1.805-.249-2.227-.415-.562-.217-.96-.477-1.382-.9-.423-.422-.683-.82-.9-1.382-.166-.422-.36-1.057-.415-2.227-.055-1.265-.07-1.647-.07-4.85s.016-3.585.071-4.85c.055-1.17.249-1.805.415-2.227.217-.562.477-.96.9-1.382.422-.423.82-.683 1.382-.9.422-.166 1.057-.36 2.227-.415 1.265-.055 1.647-.07 4.85-.07zm0 3.333a6.5 6.5 0 100 13 6.5 6.5 0 000-13zm0 10.834a4.333 4.333 0 110-8.667 4.333 4.333 0 010 8.667zm6.834-11.167a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+//   </svg>
+// </a>
+// <a 
+//   href="https://leetcode.com/u/kulkarnikalpak15/"
+//   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//   style={{ animationDelay: '0.8s' }}
+// >
+//   <span className="sr-only">LeetCode</span>
+//   <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+//     <path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s1.357.195 1.823.662l2.697 2.606c.514.514 1.357.514 1.871 0 .514-.513.514-1.356 0-1.87l-2.609-2.636a5.055 5.055 0 0 0-2.445-1.337l2.467-2.503c.516-.514.516-1.356.002-1.87-.514-.514-1.356-.514-1.87 0l-10.1 10.1c-.493.493-.77 1.15-.77 1.846 0 .714.276 1.37.77 1.863l4.347 4.373c1.051 1.051 2.437 1.613 3.908 1.613 1.471 0 2.857-.562 3.907-1.613l2.7-2.608c.514-.514.514-1.357 0-1.87-.514-.514-1.357-.514-1.871 0z" />
+//   </svg>
+// </a>
+// {/* <a 
+//   href="https://www.geeksforgeeks.org/user/kulkarniko6yz/"
+//   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//   style={{ animationDelay: '1s' }}
+// >
+//   <span className="sr-only">GeeksforGeeks</span>
+//   <svg xmlns="CV/public/geeksforgeeks-svgrepo-com.svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+//     <path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zM5.5 12c0-.657.124-1.283.346-1.857l4.137 11.196C6.814 20.136 5.5 16.345 5.5 12zm13.19 1.99c0 .621-.207 1.357-.414 2.254-.254 1.114-.508 2.393-.508 3.842 0 .381.021.737.062 1.075-1.315.913-2.907 1.447-4.622 1.447-.413 0-.82-.032-1.218-.095l2.458-7.122 2.455 6.705c.012.033.029.064.043.096-.126-.414-.207-.847-.207-1.297 0-.778.207-1.658.621-2.766.255-.7.44-1.286.535-1.845.095-.56.095-1.056.095-1.495 0-.389-.033-.74-.081-1.043.389-.033.724-.048 1.034-.048 1.064 0 2.159.197 2.159.197.207.033.239-.318.032-.382 0 0-.208-.033-1.002-.048l3.109-9.239.032.016c.414 1.129.649 2.339.649 3.604 0 .778-.095 1.526-.27 2.215l-1.193 4.09a17.46 17.46 0 01-.414 1.369zM12.094 6.25l2.656 7.271-2.656 7.718c-.153.011-.308.022-.463.022-.889 0-1.746-.154-2.543-.432l2.706-7.837-2.315-6.382c.7-.229 1.448-.355 2.227-.355.133 0 .265.004.397.009l-.009-.014z"/>
+//   </svg>
+  
+// </a> */}
+// <a 
+//   href="https://www.geeksforgeeks.org/user/kulkarniko6yz/"
+//   className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+//   style={{ animationDelay: '1s' }}
+// >
+//   <span className="sr-only">GeeksforGeeks</span>
+//   <img 
+//     src="/icons8-geeksforgeeks.svg" 
+//     alt="GeeksforGeeks Logo" 
+//     className="w-5 h-5"
+//   />
+// </a>          </div>
 //         </div>
-//       </div>
+//       </div> {/* Added closing </div> here for the "Main content" container */}
       
 //       {/* Scroll indicator */}
-//       <div 
+//       {/* <div 
 //         className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce transition-all duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
 //         style={{ transitionDelay: '1800ms' }}
 //       >
@@ -479,7 +605,7 @@
 //           <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-white/70 whitespace-nowrap opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-300">Scroll Down</span>
 //         </div>
 //         <ChevronDown className="w-6 h-6 text-white/70 mt-2 animate-pulse" />
-//       </div>
+//       </div> */}
       
 //       {/* Custom CSS */}
 //       <style jsx>{`
@@ -586,6 +712,7 @@
 
 
 
+
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, ExternalLink, User, Mail, Code, Send } from 'lucide-react';
 
@@ -605,7 +732,7 @@ function Hero() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVisible, setCursorVisible] = useState(false);
   const [typingComplete, setTypingComplete] = useState(false);
-  const roles = ["Full Stack Developer", "UI/UX Designer", "C++ Enthusiast"];
+  const roles = ["Full Stack Developer", "Cloud Engineer", "DevOps Engineer"];
   const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
   const [currentRoleText, setCurrentRoleText] = useState('');
   const [showCursor, setShowCursor] = useState(true);
@@ -753,48 +880,30 @@ function Hero() {
     typeChar();
   };
 
-  // FIXED: Improved role text animation for better completion
+  // Updated role text animation to type continuously without erasing
   useEffect(() => {
-    let isTyping = true;
     let charIndex = 0;
     let timer;
     const roleText = roles[currentRoleIndex];
-    
+
     const updateText = () => {
-      if (isTyping) {
-        // Typing mode
-        if (charIndex <= roleText.length) {
-          setCurrentRoleText(roleText.substring(0, charIndex));
-          charIndex++;
-          
-          // Continue typing - slowed down for better readability
-          timer = setTimeout(updateText, 70);
-        } else {
-          // Finished typing, pause before erasing (increased pause time)
-          isTyping = false;
-          timer = setTimeout(updateText, 3000);
-        }
+      if (charIndex <= roleText.length) {
+        setCurrentRoleText(roleText.substring(0, charIndex));
+        charIndex++;
+        timer = setTimeout(updateText, 70); // Typing speed
       } else {
-        // Erasing mode
-        if (charIndex > 0) {
-          charIndex--;
-          setCurrentRoleText(roleText.substring(0, charIndex));
-          
-          // Continue erasing - slowed down slightly
-          timer = setTimeout(updateText, 40);
-        } else {
-          // Finished erasing, move to next role with a pause before starting
-          isTyping = true;
+        // Finished typing, pause for 3 seconds, then move to the next role
+        setTimeout(() => {
           setCurrentRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
-          // Add pause before starting next role
-          timer = setTimeout(updateText, 800);
-        }
+          charIndex = 0; // Reset charIndex for the next role
+          setTimeout(updateText, 500); // Short pause before typing next role
+        }, 3000); // Pause duration after typing
       }
     };
-    
+
     // Start animation
     timer = setTimeout(updateText, 500);
-    
+
     return () => clearTimeout(timer);
   }, [currentRoleIndex, roles]);
 
@@ -898,7 +1007,6 @@ function Hero() {
                       {index === 5 && (
                         <span className={typedCode[5] ? "text-purple-400" : ""}>{typedCode[5]}</span>
                       )}
-                      
                       {index === currentLine && (
                         <span className={`inline-block w-0.5 h-5 bg-white mb-0.5 ml-px ${showCursor ? 'opacity-100' : 'opacity-0'}`}></span>
                       )}
@@ -919,8 +1027,7 @@ function Hero() {
       </div>
       
       {/* Main content */}
-            {/* Main content */}
-            <div className="container mx-auto px-4 z-10 relative">
+      <div className="container mx-auto px-4 z-10 relative">
         <div className="text-center md:text-left max-w-3xl">
           <h2 
             ref={subtitleRef} 
@@ -930,7 +1037,6 @@ function Hero() {
             <span className="inline-block animate-shimmer">Hello, I'm</span>
           </h2>
           
-          {/* FIXED: Improved name styling with proper whitespace handling and width */}
           <h1 
             ref={titleRef} 
             className={`text-5xl md:text-7xl lg:text-8xl font-bold mb-8 transition-all duration-1000 ease-out whitespace-nowrap ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
@@ -942,7 +1048,6 @@ function Hero() {
             </span>
           </h1>
           
-          {/* FIXED: Improved role text animation container with better height and width handling */}
           <div 
             className={`text-xl md:text-3xl text-gray-300 mb-12 h-16 flex items-center md:justify-start justify-center transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: '900ms' }}
@@ -1067,16 +1172,6 @@ function Hero() {
               </svg>
             </a>
             <a 
-              href="https://x.com"
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
-              style={{ animationDelay: '0.4s' }}
-            >
-              <span className="sr-only">X</span>
-              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-              </svg>
-            </a>
-            <a 
               href="https://instagram.com"
               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
               style={{ animationDelay: '0.6s' }}
@@ -1086,20 +1181,30 @@ function Hero() {
                 <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.906.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.936 3.236.63 4.025c-.297.765-.498 1.635-.558 2.913C.015 8.217 0 8.624 0 11.884v.232c0 3.26.015 3.667.072 4.947.06 1.278.261 2.148.558 2.913.306.789.717 1.459 1.384 2.126s1.337 1.078 2.126 1.384c.765.297 1.635.498 2.913.558 1.28.057 1.687.072 4.947.072s3.667-.015 4.947-.072c1.278-.06 2.148-.261 2.913-.558.789-.306 1.459-.717 2.126-1.384s1.078-1.337 1.384-2.126c.297-.765.498-1.635.558-2.913.057-1.28.072-1.687.072-4.947v-.232c0-3.26-.015-3.667-.072-4.947-.06-1.278-.261-2.148-.558-2.913-.306-.789-.717-1.459-1.384-2.126S20.764.936 19.975.63c-.765-.297-1.635-.498-2.913-.558C15.782.015 15.375 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.9.423.422.683.82.9 1.382.166.422.36 1.057.415 2.227.055 1.265.07 1.647.07 4.85s-.016 3.585-.071 4.85c-.055 1.17-.249 1.805-.415 2.227-.217.562-.477.96-.9 1.382-.422.423-.82.683-1.382.9-.422.166-1.057.36-2.227.415-1.265.055-1.647.07-4.85.07s-3.585-.016-4.85-.071c-1.17-.055-1.805-.249-2.227-.415-.562-.217-.96-.477-1.382-.9-.423-.422-.683-.82-.9-1.382-.166-.422-.36-1.057-.415-2.227-.055-1.265-.07-1.647-.07-4.85s.016-3.585.071-4.85c.055-1.17.249-1.805.415-2.227.217-.562.477-.96.9-1.382.422-.423.82-.683 1.382-.9.422-.166 1.057-.36 2.227-.415 1.265-.055 1.647-.07 4.85-.07zm0 3.333a6.5 6.5 0 100 13 6.5 6.5 0 000-13zm0 10.834a4.333 4.333 0 110-8.667 4.333 4.333 0 010 8.667zm6.834-11.167a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
               </svg>
             </a>
+            <a 
+              href="https://leetcode.com/u/kulkarnikalpak15/"
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+              style={{ animationDelay: '0.8s' }}
+            >
+              <span className="sr-only">LeetCode</span>
+              <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M16.102 17.93l-2.697 2.607c-.466.467-1.111.662-1.823.662s-1.357-.195-1.824-.662l-4.332-4.363c-.467-.467-.702-1.15-.702-1.863s.235-1.357.702-1.824l4.319-4.38c.467-.467 1.125-.645 1.837-.645s1.357.195 1.823.662l2.697 2.606c.514.514 1.357.514 1.871 0 .514-.513.514-1.356 0-1.87l-2.609-2.636a5.055 5.055 0 0 0-2.445-1.337l2.467-2.503c.516-.514.516-1.356.002-1.87-.514-.514-1.356-.514-1.87 0l-10.1 10.1c-.493.493-.77 1.15-.77 1.846 0 .714.276 1.37.77 1.863l4.347 4.373c1.051 1.051 2.437 1.613 3.908 1.613 1.471 0 2.857-.562 3.907-1.613l2.7-2.608c.514-.514.514-1.357 0-1.87-.514-.514-1.357-.514-1.871 0z" />
+              </svg>
+            </a>
+            <a 
+              href="https://www.geeksforgeeks.org/user/kulkarniko6yz/"
+              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
+              style={{ animationDelay: '1s' }}
+            >
+              <span className="sr-only">GeeksforGeeks</span>
+              <img 
+                src="/icons8-geeksforgeeks.svg" 
+                alt="GeeksforGeeks Logo" 
+                className="w-5 h-5"
+              />
+            </a>
           </div>
         </div>
-      </div> {/* Added closing </div> here for the "Main content" container */}
-      
-      {/* Scroll indicator */}
-      <div 
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce transition-all duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
-        style={{ transitionDelay: '1800ms' }}
-      >
-        <div className="w-8 h-12 rounded-full border-2 border-white/50 flex justify-center backdrop-blur-sm relative overflow-hidden group cursor-pointer">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
-          <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-white/70 whitespace-nowrap opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-300">Scroll Down</span>
-        </div>
-        <ChevronDown className="w-6 h-6 text-white/70 mt-2 animate-pulse" />
       </div>
       
       {/* Custom CSS */}

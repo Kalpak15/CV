@@ -1,186 +1,3 @@
-// // import { useEffect, useRef } from 'react';
-
-// // function About() {
-// //   const sectionRef = useRef(null);
-  
-// //   useEffect(() => {
-// //     const observer = new IntersectionObserver(
-// //       ([entry]) => {
-// //         if (entry.isIntersecting) {
-// //           entry.target.classList.add('fade-in');
-// //           observer.unobserve(entry.target);
-// //         }
-// //       },
-// //       { threshold: 0.1 }
-// //     );
-    
-// //     if (sectionRef.current) {
-// //       observer.observe(sectionRef.current);
-// //     }
-    
-// //     return () => {
-// //       if (sectionRef.current) {
-// //         observer.unobserve(sectionRef.current);
-// //       }
-// //     };
-// //   }, []);
-
-// //   return (
-// //     <section id="about" className="py-24 bg-gray-900" ref={sectionRef}>
-// //       <div className="container mx-auto px-4">
-// //         <h2 className="text-4xl font-bold mb-16 text-center">
-// //           <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text">About Me</span>
-// //         </h2>
-        
-// //         <div className="grid md:grid-cols-2 gap-16 items-center">
-// //           <div className="relative">
-// //             <div className="aspect-square rounded-2xl overflow-hidden transform hover:rotate-3 transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/20">
-// //               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 backdrop-blur-sm"></div>
-// //               <img 
-// //                 src="assets\kkkkk.jpg" 
-// //                 alt="Your profile" 
-// //                 className="w-full h-full object-cover"
-// //               />
-// //             </div>
-// //             <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full opacity-20 blur-xl"></div>
-// //           </div>
-          
-// //           <div className="about-content">
-// //             <h3 className="text-2xl font-bold mb-6 text-white">
-// //               I'm a <span className="text-purple-400">Full Stack Developer</span> based in [Your Location]
-// //             </h3>
-            
-// //             <p className="text-gray-300 mb-6">
-// //               I specialize in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products using React and modern backend technologies.
-// //             </p>
-            
-// //             <p className="text-gray-300 mb-8">
-// //               With [X] years of experience in web development, I enjoy taking complex problems and turning them into simple and beautiful interface designs. I also love the logic and structure of coding and always strive to write elegant and efficient code.
-// //             </p>
-            
-// //             <div className="flex flex-wrap gap-4 mb-8">
-// //               <div className="px-4 py-2 bg-gray-800 rounded-full text-gray-300">
-// //                 <span className="text-purple-400">20+</span> Projects Completed
-// //               </div>
-// //               <div className="px-4 py-2 bg-gray-800 rounded-full text-gray-300">
-// //                 <span className="text-blue-400">5+</span> Years Experience
-// //               </div>
-// //               <div className="px-4 py-2 bg-gray-800 rounded-full text-gray-300">
-// //                 <span className="text-pink-400">100%</span> Client Satisfaction
-// //               </div>
-// //             </div>
-            
-// //             <a 
-// //               href="#" 
-// //               className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition duration-300 transform hover:-translate-y-1"
-// //             >
-// //               Download CV
-// //               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-// //                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-// //               </svg>
-// //             </a>
-// //           </div>
-// //         </div>
-// //       </div>
-// //     </section>
-// //   );
-// // }
-
-// // export default About;
-
-
-
-// //second dark theme
-// import { useEffect, useRef } from 'react';
-
-// function About() {
-//   const sectionRef = useRef(null);
-  
-//   useEffect(() => {
-//     const observer = new IntersectionObserver(
-//       ([entry]) => {
-//         if (entry.isIntersecting) {
-//           entry.target.classList.add('fade-in');
-//           observer.unobserve(entry.target);
-//         }
-//       },
-//       { threshold: 0.1 }
-//     );
-    
-//     if (sectionRef.current) {
-//       observer.observe(sectionRef.current);
-//     }
-    
-//     return () => {
-//       if (sectionRef.current) {
-//         observer.unobserve(sectionRef.current);
-//       }
-//     };
-//   }, []);
-
-//   return (
-//     <section id="about" className="min-h-screen bg-black" ref={sectionRef}>
-//       <div className="container mx-auto px-4 py-16">
-//         <h2 className="text-5xl font-bold mb-16 text-center">
-//           <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text">About Me</span>
-//         </h2>
-        
-//         <div className="grid md:grid-cols-2 gap-16 items-center">
-//           <div className="relative">
-//             <div className="aspect-square rounded-2xl overflow-hidden transform hover:rotate-3 transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/20">
-//               <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 backdrop-blur-sm"></div>
-//               <img 
-//                 src="assets/kkkkk.jpg" 
-//                 alt="Profile" 
-//                 className="w-full h-full object-cover"
-//               />
-//             </div>
-//             <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full opacity-20 blur-xl"></div>
-//           </div>
-          
-//           <div className="about-content">
-//             <h3 className="text-2xl font-bold mb-6 text-white">
-//               I'm a <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text">Full Stack Developer</span> based in [Your Location]
-//             </h3>
-            
-//             <p className="text-gray-300 mb-6">
-//               I specialize in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products using React and modern backend technologies.
-//             </p>
-            
-//             <p className="text-gray-300 mb-8">
-//               With [X] years of experience in web development, I enjoy taking complex problems and turning them into simple and beautiful interface designs. I also love the logic and structure of coding and always strive to write elegant and efficient code.
-//             </p>
-            
-//             <div className="flex flex-wrap gap-4 mb-8">
-//               <div className="px-4 py-2 bg-black border border-purple-500/30 rounded-full text-gray-300">
-//                 <span className="text-purple-400">20+</span> Projects Completed
-//               </div>
-//               <div className="px-4 py-2 bg-black border border-pink-500/30 rounded-full text-gray-300">
-//                 <span className="text-pink-400">5+</span> Years Experience
-//               </div>
-//               <div className="px-4 py-2 bg-black border border-blue-500/30 rounded-full text-gray-300">
-//                 <span className="text-blue-400">100%</span> Client Satisfaction
-//               </div>
-//             </div>
-            
-//             <a 
-//               href="#" 
-//               className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition duration-300 transform hover:-translate-y-1"
-//             >
-//               Download CV
-//               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-//                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-//               </svg>
-//             </a>
-//           </div>
-//         </div>
-//       </div>
-//     </section>
-//   );
-// }
-
-// export default About;
-
 
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Download } from 'lucide-react';
@@ -366,22 +183,31 @@ function About() {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div 
             ref={imageRef}
-            className={`relative transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
+            className={`relative w-full mx-auto md:w-4/5 lg:w-3/4 transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`}
             style={{ transitionDelay: '500ms', perspective: '1000px' }}
           >
-            <div className="aspect-square rounded-2xl overflow-hidden transform hover:rotate-3 transition-all duration-500 hover:shadow-xl hover:shadow-purple-500/20 relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 to-blue-500/20 backdrop-blur-sm"></div>
-              <img 
-                src="assets/kkkkk.jpg" 
-                alt="Profile" 
-                className="w-full h-full object-cover"
-              />
-              {/* Dynamic glow effect */}
-              <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity duration-300">
-                <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 via-pink-600 to-blue-600 rounded-2xl blur-lg opacity-30 group-hover:opacity-100 transition-opacity duration-300"></div>
+            {/* Circular profile container - MODIFIED WITH FULL CIRCLE IMAGE */}
+            <div className="relative mx-auto" style={{ width: "380px", height: "380px" }}>
+              {/* Circular background with light gradient */}
+              <div className="absolute inset-0 rounded-full bg-gradient-to-br from-teal-50 to-blue-50 shadow-lg"></div>
+              
+              {/* Profile photo container - MODIFIED TO FILL ENTIRE CIRCLE AND PROPERLY POSITION FACE */}
+              <div className="absolute inset-0 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                <img 
+                  src="kalpak_photo.jpg" 
+                  alt="Profile" 
+                  className="w-full h-full object-cover"
+                  style={{
+                    objectPosition: "center 30%",  // Position shifted down to show full face/head
+                    transform: "scale(1.05)"  // Slightly enlarged to ensure full coverage
+                  }}
+                />
               </div>
+              
+              {/* Small decorative circles - KEPT THESE AS THEY'RE OUTSIDE THE MAIN CIRCLE */}
+              <div className="absolute left-6 bottom-8 w-3 h-3 rounded-full bg-yellow-500"></div>
+              <div className="absolute left-16 bottom-2 w-2 h-2 rounded-full bg-white"></div>
             </div>
-            <div className="absolute -bottom-8 -right-8 w-40 h-40 bg-gradient-to-br from-purple-600 to-blue-600 rounded-full opacity-20 blur-xl"></div>
           </div>
           
           <div 
@@ -393,12 +219,16 @@ function About() {
               I'm a <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text">Full Stack Developer</span> based in [Your Location]
             </h3>
             
-            <p className="text-gray-300 mb-6">
-              I specialize in building exceptional digital experiences. Currently, I'm focused on building accessible, human-centered products using React and modern backend technologies.
+            <p className="text-gray-300 mb-4">
+              I’m a passionate and driven Informtion Technology student at Vidyalankar Institute of Technology, aiming to become a skilled Software Development Engineer (SDE). With a strong foundation in Data Structures and Algorithms (DSA), I enjoy solving complex problems and writing clean, efficient code.
             </p>
             
-            <p className="text-gray-300 mb-8">
-              With [X] years of experience in web development, I enjoy taking complex problems and turning them into simple and beautiful interface designs. I also love the logic and structure of coding and always strive to write elegant and efficient code.
+            <p className="text-gray-300 mb-4">
+              I have hands-on experience with both frontend and backend development — building user interfaces using React and developing scalable backend systems. My knowledge spans multiple programming languages, and I constantly strive to deepen my understanding of system design and backend architecture.
+            </p>
+            
+            <p className="text-gray-300 mb-4">
+              As a backend enthusiast with full-stack capabilities, I’m always exploring new technologies and best practices to improve performance, reliability, and user experience. I'm excited to contribute to impactful projects and grow in a challenging, innovation-driven environment.
             </p>
             
             <div 
@@ -407,23 +237,24 @@ function About() {
               style={{ transitionDelay: '900ms' }}
             >
               <div className="px-4 py-2 bg-black/50 backdrop-blur-sm border border-purple-500/30 rounded-full text-gray-300 hover:border-purple-500/60 transition-all duration-300 transform hover:-translate-y-1">
-                <span className="text-purple-400">20+</span> Projects Completed
+                <span className="text-purple-400">6+</span> Personal Projects Built
               </div>
-              <div className="px-4 py-2 bg-black/50 backdrop-blur-sm border border-pink-500/30 rounded-full text-gray-300 hover:border-pink-500/60 transition-all duration-300 transform hover:-translate-y-1">
+              {/* <div className="px-4 py-2 bg-black/50 backdrop-blur-sm border border-pink-500/30 rounded-full text-gray-300 hover:border-pink-500/60 transition-all duration-300 transform hover:-translate-y-1">
                 <span className="text-pink-400">5+</span> Years Experience
-              </div>
+              </div> */}
               <div className="px-4 py-2 bg-black/50 backdrop-blur-sm border border-blue-500/30 rounded-full text-gray-300 hover:border-blue-500/60 transition-all duration-300 transform hover:-translate-y-1">
-                <span className="text-blue-400">100%</span> Client Satisfaction
+                <span className="text-blue-400">100%</span> Commitment to Learning
+
               </div>
             </div>
             
             <div className={`transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1100ms' }}>
               <a 
-                href="#" 
+                href="https://drive.google.com/file/d/1l5xba62h7Uuh1uwQJAB3JqKKWCTCNOaW/view?usp=sharing" 
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition duration-300 transform hover:-translate-y-1 relative overflow-hidden group"
               >
                 <span className="relative z-10 flex items-center">
-                  Download CV
+                  Download Resume
                   <Download className="w-4 h-4 ml-2" />
                 </span>
                 <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
@@ -435,7 +266,7 @@ function About() {
       </div>
       
       {/* Scroll indicator */}
-      <div 
+      {/* <div 
         className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce transition-all duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
         style={{ transitionDelay: '1300ms' }}
       >
@@ -444,7 +275,7 @@ function About() {
           <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-white/70 whitespace-nowrap opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-300">Scroll Down</span>
         </div>
         <ChevronDown className="w-6 h-6 text-white/70 mt-2 animate-pulse" />
-      </div>
+      </div> */}
       
       {/* Custom CSS - same as Hero section */}
       <style jsx>{`
