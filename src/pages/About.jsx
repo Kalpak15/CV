@@ -198,7 +198,7 @@ function About() {
                   alt="Profile" 
                   className="w-full h-full object-cover"
                   style={{
-                    objectPosition: "center 30%",  // Position shifted down to show full face/head
+                    objectPosition: "center 0%",  // Position shifted down to show full face/head
                     transform: "scale(1.05)"  // Slightly enlarged to ensure full coverage
                   }}
                 />
@@ -216,7 +216,7 @@ function About() {
             style={{ transitionDelay: '700ms' }}
           >
             <h3 className="text-2xl font-bold mb-6 text-white">
-              I'm a <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text">Full Stack Developer</span> based in [Your Location]
+              {/* I'm a <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-blue-500 text-transparent bg-clip-text">Full Stack Developer</span> based in [Your Location] */}
             </h3>
             
             <p className="text-gray-300 mb-4">

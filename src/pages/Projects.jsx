@@ -1,4 +1,5 @@
 
+
 import { useState, useEffect, useRef } from 'react';
 import { Github, ExternalLink, ChevronRight, Code, ChevronUp } from 'lucide-react';
 
@@ -144,25 +145,64 @@ function Projects() {
       id: 1,
       title: "Ride Buddy",
       description: "A full-stack website for a carpooling system enabling intercity travel. Users can book rides, share trips, and optimize travel costs.",
-      tech: ["React.js", "Express.js", "MongoDB", "Railway(host)","GitHub"],
+      features: [
+        // "Real-time ride matching and booking system",
+        // "Secure payment integration and cost optimization",
+        // "User authentication and profile management",
+        // "Interactive maps for route planning",
+        // "Rating and review system for drivers and passengers"
+        "Developed Ride Buddy, a full-stack ride-sharing application using React for frontend, Express.js for backend, and MongoDB for database management.",
+        "Implemented secure user authentication with JWT for signup, login, and session management.",
+        "Built a profile management system for users and drivers with role-based functionalities.",
+        "Created a ride creation and booking system, enabling drivers to post rides and users to search/book rides.",
+        "Integrated UserPay payment gateway for seamless community membership transactions.",
+        "Optimized MongoDB for efficient storage and retrieval of user data, ride details, and transaction records.",
+        "Designed a responsive and intuitive UI with React to enhance user experience across devices."
+      ],
+      tech: ["React.js", "Express.js", "MongoDB","Cloudinary","GitHub"],
       image: "assets/carpool.jpg",
-      demoUrl: "https://ridebuddy-production-v1.up.railway.app/",
-      githubUrl: "https://github.com/Kalpak15/Carpooling_system.git"
+      demoUrl: "https://carpooling-system-frontend.onrender.com",
+      githubUrl: "https://github.com/Kalpak15/Carpooling_system.git",
     },
     {
       id: 2,
-      title: "Data Download Duplication Alert System (DDAS)",
+      title: "ZeroDup",
       description: "A full-stack website that prevents duplicate data downloads using file hashing and real-time alerts in multi-user environments.",
-      tech: ["React.js", "Express.js", "MongoDB","Railway(host)","GitHub"],
+      features: [
+        // "Advanced file hashing algorithms for duplicate detection",
+        // "Real-time notification system for download alerts",
+        // "Multi-user environment support with role management",
+        // "Dashboard analytics for download patterns",
+        // "Automated cleanup and storage optimization"
+        "Developed DDAS (Data Download Duplication Alert System), a full-stack application using React, Express.js, and MongoDB to prevent redundant file downloads in collaborative team environments.",
+        "Implemented advanced duplication detection that analyzes both file names and content to handle cases like same name different content, different name same content, and exact duplicates across file types (txt, excel, pdf, word, png, jpg).",
+        "Created a team management system with features for creating and joining teams, role-based access control (only team creators can upload files), and an integrated chat functionality for team communication.",
+        "Integrated a real-time alert system that notifies users when attempting to download a file already downloaded by another team member, offering cloud viewing options to avoid re-downloading.",
+        "Ensured secure user authentication using JWT for signup, login, and session management, protecting user data and team privacy.",
+        "Designed a responsive and intuitive user interface using React, ensuring a seamless experience across devices."
+      ],
+      tech: ["React.js", "Express.js", "MongoDB","Cloudinary","GitHub"],
       image: "assets/ddas.svg",
-      demoUrl: "https://github.com/Kalpak15/DDAS.git",
+      demoUrl: "https://ddas-frontend.onrender.com",
       githubUrl: "https://github.com/Kalpak15/DDAS.git"
     },
     {
       id: 3,
       title: "Finverse – Financial Advisor",
       description: "An intelligent financial advisory platform that uses machine learning to deliver personalized insights, helping users make informed financial decisions.",
-      tech: ["React", "Flask", "Python (ML)", "MongoDB", "HTML", "CSS", "GitHub"],
+      features: [
+        // "AI-powered financial analysis and recommendations",
+        // "Personalized investment portfolio suggestions",
+        // "Risk assessment and goal tracking tools",
+        // "Market trend analysis and predictions",
+        // "Interactive financial planning dashboard"
+        "Developed finverse, a full-stack financial advisor app using React, Express.js, and MongoDB for personalized financial guidance.",
+        "Integrated an interactive chatbot and quiz powered by a RAG ML model to deliver tailored financial advice.",
+        "Designed a responsive React UI, ensuring an engaging and accessible user experience across devices.",
+        "Utilized MongoDB for secure and efficient storage of user data and financial interactions.",
+        "Enhanced financial literacy through AI-driven recommendations and educational content."
+      ],
+      tech: ["React.js", "Express.js","MongoDB","Flask", "Python (ML)","RAG(ML Model)","GitHub"],
       image: "/assets/finverse.svg",
       demoUrl: "https://finverse-frontend.onrender.com/",
       githubUrl: "https://github.com/Kalpak15/FinVerse.git"
@@ -170,8 +210,20 @@ function Projects() {
     {
       id: 4,
       title: "Resume Analyzer",
-      description: "An intelligent tool that compares resumes against job requirements, highlights missing skills, and recommends learning resources to enhance applicant profiles. Built to assist HRs in filtering and evaluating candidates efficiently.",
-      tech: ["Python", "Flask", "HTML", "CSS", "JavaScript"],
+      description: "An intelligent tool that compares resumes against job requirements, highlights missing skills, and recommends learning resources to enhance applicant profiles.",
+      features: [
+        // "AI-powered resume parsing and skill extraction",
+        // "Job requirement matching and gap analysis",
+        // "Personalized learning resource recommendations",
+        // "ATS optimization suggestions and scoring",
+        // "Bulk resume processing for HR departments"
+        "Developed resumeAnalyzer, a full-stack web application with HTML, CSS, JavaScript frontend and Flask backend, powered by a RoBERTa-based ML model for resume analysis.",
+        "Engineered semantic analysis to match resumes with job descriptions and skills, generating fit scores, identifying skill gaps, and recommending relevant courses.",
+        "Built a dual-purpose platform for job seekers to receive tailored resume feedback and for HRs to rank candidate resumes based on job requirements.",
+        "Leveraged RoBERTa NLP model for accurate text analysis, ensuring precise resume-job matching and actionable insights.",
+        "Designed an intuitive, user-friendly interface for seamless input of resumes and job details, enhancing accessibility for all users."
+      ],
+      tech: ["Python", "Flask", "HTML", "CSS", "JavaScript","Roberta(ML Model)"],
       image: "assets/resume.svg",
       demoUrl: "https://github.com/Kalpak15/CarrierNavigator.git",
       githubUrl: "https://github.com/Kalpak15/CarrierNavigator.git"
@@ -188,10 +240,18 @@ function Projects() {
     if (card) {
       card.classList.add('card-active');
       const techBadges = card.querySelectorAll('.tech-badge');
+      const featureItems = card.querySelectorAll('.feature-item');
+      
       techBadges.forEach((badge, i) => {
         setTimeout(() => {
           badge.classList.add('badge-visible');
         }, i * 50);
+      });
+      
+      featureItems.forEach((item, i) => {
+        setTimeout(() => {
+          item.classList.add('feature-visible');
+        }, i * 100 + 200);
       });
     }
   };
@@ -202,8 +262,14 @@ function Projects() {
     if (card) {
       card.classList.remove('card-active');
       const techBadges = card.querySelectorAll('.tech-badge');
+      const featureItems = card.querySelectorAll('.feature-item');
+      
       techBadges.forEach((badge) => {
         badge.classList.remove('badge-visible');
+      });
+      
+      featureItems.forEach((item) => {
+        item.classList.remove('feature-visible');
       });
     }
   };
@@ -228,7 +294,7 @@ function Projects() {
     >
       {/* Custom cursor - same as About */}
       <div 
-        className="fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100"
+        className="fixed w-10 h-10 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100"
         style={{
           left: `${mousePosition.x}px`,
           top: `${mousePosition.y}px`,
@@ -263,7 +329,7 @@ function Projects() {
           </span>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+        <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8 lg:gap-10">
           {visibleProjects.map((project, index) => (
             <div 
               key={project.id}
@@ -279,8 +345,8 @@ function Projects() {
               {/* Glow effect */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-purple-600 to-blue-600 rounded-2xl opacity-0 blur-sm transition-opacity duration-300 glow-effect"></div>
               
-              <div className="relative h-80 rounded-xl overflow-hidden bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 shadow-xl shadow-purple-900/10 transform transition-all duration-500 hover:-translate-y-2">
-                <div className="h-48 overflow-hidden">
+              <div className="relative h-96 rounded-xl overflow-hidden bg-gray-800/30 backdrop-blur-sm border border-gray-700/50 shadow-xl shadow-purple-900/10 transform transition-all duration-500 hover:-translate-y-2">
+                <div className="h-40 overflow-hidden">
                   <img 
                     src={project.image} 
                     alt={project.title} 
@@ -288,54 +354,114 @@ function Projects() {
                   />
                 </div>
                 
-                <div className="p-6">
+                <div className="p-6 h-56 flex flex-col">
                   <h3 className="text-xl font-bold text-white mb-2 transition-all duration-300 project-title">
                     {project.title}
                   </h3>
-                  <p className="text-gray-300 text-sm line-clamp-2">{project.description}</p>
-                </div>
-                
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/80 to-transparent flex flex-col justify-end p-6 rounded-xl backdrop-blur-sm opacity-0 transition-opacity duration-300 project-overlay">
-                  <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-200 text-sm mb-4">{project.description}</p>
-                  
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.tech.map((tech, i) => (
+                  <p className="text-gray-300 text-sm line-clamp-3 flex-grow">{project.description}</p>
+                   
+                  <div className="flex flex-wrap gap-1 mt-3">
+                    {project.tech.slice(0, 3).map((tech, i) => (
                       <span 
                         key={tech} 
-                        className="px-3 py-1 bg-gray-800/80 text-xs font-medium text-gray-300 rounded-full border border-gray-700/50 backdrop-blur-sm tech-badge opacity-0 transform scale-0 transition-all duration-300"
-                        style={{transitionDelay: `${i * 0.05}s`}}
+                        className="px-2 py-1 bg-gray-700/50 text-xs text-gray-300 rounded-md"
                       >
                         {tech}
                       </span>
                     ))}
+                    {project.tech.length > 3 && (
+                      <span className="px-2 py-1 bg-gray-700/50 text-xs text-gray-400 rounded-md">
+                        +{project.tech.length - 3} more
+                      </span>
+                    )}
                   </div>
-                  
-                  <div className="flex gap-4">
+                </div>
+                
+                {/* Enhanced Hover overlay with more space */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/90 to-black/80 flex flex-col justify-start p-6 rounded-xl backdrop-blur-sm opacity-0 transition-opacity duration-300 project-overlay overflow-y-auto">
+                  <div className="flex gap-3 mt-auto pt-4">
                     <a 
                       href={project.demoUrl}
-                      className="px-4 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-sm text-white font-medium rounded-full flex items-center transform transition-transform duration-300 hover:scale-105 active:scale-95 relative overflow-hidden group"
+                      className="flex-1 px-3 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-xs text-white font-medium rounded-full flex items-center justify-center transform transition-transform duration-300 hover:scale-105 active:scale-95 relative overflow-hidden group"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
                       <span className="relative z-10 flex items-center">
-                        <ExternalLink className="w-4 h-4 mr-1" /> Live Demo
+                        <ExternalLink className="w-3 h-3 mr-1" /> Live Demo
                       </span>
                       <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       <span className="absolute top-0 left-0 w-full h-full bg-white/30 skew-x-45 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
                     </a>
                     <a 
                       href={project.githubUrl}
-                      className="px-4 py-2 border border-white/30 text-sm text-white font-medium rounded-full flex items-center backdrop-blur-sm hover:bg-white/10 transform transition-transform duration-300 hover:scale-105 active:scale-95"
+                      className="flex-1 px-3 py-2 border border-white/30 text-xs text-white font-medium rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/10 transform transition-transform duration-300 hover:scale-105 active:scale-95"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <Code className="w-4 h-4 mr-1" /> GitHub
+                      <Code className="w-3 h-3 mr-1" /> GitHub
                     </a>
                   </div>
+                  <h3 className="text-xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-blue-400 mb-3">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-200 text-sm mb-4 leading-relaxed">{project.description}</p>
+                  
+                  {/* Key Features Section */}
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold text-purple-300 mb-2">Key Features:</h4>
+                    <ul className="space-y-1">
+                      {project.features.map((feature, i) => (
+                        <li 
+                          key={i}
+                          className="text-xs text-gray-300 flex items-start feature-item opacity-0 transform translate-x-4 transition-all duration-300"
+                          style={{transitionDelay: `${i * 0.1}s`}}
+                        >
+                          <span className="text-purple-400 mr-2 text-xs">•</span>
+                          <span className="leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  {/* Technologies */}
+                  <div className="mb-4">
+                    <h4 className="text-sm font-semibold text-blue-300 mb-2">Technologies:</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech, i) => (
+                        <span 
+                          key={tech} 
+                          className="px-2 py-1 bg-gray-800/80 text-xs font-medium text-gray-300 rounded-full border border-gray-700/50 backdrop-blur-sm tech-badge opacity-0 transform scale-0 transition-all duration-300"
+                          style={{transitionDelay: `${i * 0.05}s`}}
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  {/* Action Buttons */}
+                  {/* <div className="flex gap-3 mt-auto pt-4">
+                    <a 
+                      href={project.demoUrl}
+                      className="flex-1 px-3 py-2 bg-gradient-to-r from-purple-600 to-blue-600 text-xs text-white font-medium rounded-full flex items-center justify-center transform transition-transform duration-300 hover:scale-105 active:scale-95 relative overflow-hidden group"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <span className="relative z-10 flex items-center">
+                        <ExternalLink className="w-3 h-3 mr-1" /> Live Demo
+                      </span>
+                      <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
+                      <span className="absolute top-0 left-0 w-full h-full bg-white/30 skew-x-45 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
+                    </a>
+                    <a 
+                      href={project.githubUrl}
+                      className="flex-1 px-3 py-2 border border-white/30 text-xs text-white font-medium rounded-full flex items-center justify-center backdrop-blur-sm hover:bg-white/10 transform transition-transform duration-300 hover:scale-105 active:scale-95"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <Code className="w-3 h-3 mr-1" /> GitHub
+                    </a>
+                  </div> */}
+                  </div>
+                  
                 </div>
               </div>
             </div>
@@ -369,19 +495,7 @@ function Projects() {
         </div>
       </div>
       
-      {/* Scroll indicator */}
-      {/* <div 
-        className={`absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce transition-all duration-1000 ${loaded ? 'opacity-100' : 'opacity-0'}`}
-        style={{ transitionDelay: '1300ms' }}
-      >
-        <div className="w-8 h-12 rounded-full border-2 border-white/50 flex justify-center backdrop-blur-sm relative overflow-hidden group cursor-pointer">
-          <div className="w-1 h-3 bg-white/50 rounded-full mt-2 animate-pulse"></div>
-          <span className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 text-xs text-white/70 whitespace-nowrap opacity-0 group-hover:opacity-100 group-hover:-translate-y-2 transition-all duration-300">Scroll Down</span>
-        </div>
-        <ChevronUp className="w-6 h-6 text-white/70 mt-2 animate-pulse" />
-      </div> */}
-      
-      {/* Custom CSS - modified to match About section */}
+    
       <style jsx>{`
         .grid-bg {
           background-size: 50px 50px;
@@ -457,6 +571,18 @@ function Projects() {
         .badge-visible {
           opacity: 1 !important;
           transform: scale(1) !important;
+        }
+        
+        .feature-visible {
+          opacity: 1 !important;
+          transform: translateX(0) !important;
+        }
+        
+        .line-clamp-3 {
+          display: -webkit-box;
+          -webkit-line-clamp: 3;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
         }
       `}</style>
     </section>
