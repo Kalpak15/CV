@@ -150,7 +150,7 @@ function AchievementsCertifications() {
     },
     {
       id: 1,
-      title: "200+ Coding Problems",
+      title: "100+ Coding Problems",
       organization: "GeeksForGeeks ",
       year: "2023",
       description: "Solved on GeeksForGeeks , improving algorithmic problem-solving skills.",
