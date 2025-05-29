@@ -204,7 +204,7 @@ function Projects() {
       ],
       tech: ["Python", "Flask", "HTML", "CSS", "JavaScript","Roberta(ML Model)"],
       image: "assets/resume.svg",
-      // demoUrl: "https://github.com/Kalpak15/CarrierNavigator.git",
+      demoUrl: "https://github.com/Kalpak15/CarrierNavigator.git",
       githubUrl: "https://github.com/Kalpak15/CarrierNavigator.git"
     } ,   
     {
@@ -225,7 +225,7 @@ function Projects() {
       ],
       tech: ["React.js", "Express.js","MongoDB","Flask", "Python (ML)","RAG(ML Model)","GitHub"],
       image: "/assets/finverse.svg",
-      // demoUrl: "https://finverse-frontend.onrender.com/",
+      demoUrl: "https://github.com/Kalpak15/FinVerse.git",
       githubUrl: "https://github.com/Kalpak15/FinVerse.git"
     },
   ];
