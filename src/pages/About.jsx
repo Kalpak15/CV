@@ -250,7 +250,7 @@ function About() {
             
             <div className={`transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1100ms' }}>
               <a 
-                href="https://drive.google.com/file/d/1p3Ye-bsdEsllqF0IiIOL5dPQXxEUiSNP/view?usp=sharing" 
+                href="https://drive.google.com/file/d/1j-vwzHjQYiXcnhSVwGqELUpB3b9Jjed6/view?usp=sharing" 
                 className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition duration-300 transform hover:-translate-y-1 relative overflow-hidden group"
               >
                 <span className="relative z-10 flex items-center">
