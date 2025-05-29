@@ -224,7 +224,7 @@ function About() {
             </p>
             
             <p className="text-gray-300 mb-4">
-              I have hands-on experience with both frontend and backend development — building user interfaces using React and developing scalable backend systems. My knowledge spans multiple programming languages, and I constantly strive to deepen my understanding of system design and backend architecture.
+              I have hands-on experience with both frontend and backend development — building user interfaces using React.js and developing scalable backend systems. My knowledge spans multiple programming languages, and I constantly strive to deepen my understanding of system design and backend architecture.
             </p>
             
             <p className="text-gray-300 mb-4">
