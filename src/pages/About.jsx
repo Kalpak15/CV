@@ -237,7 +237,7 @@ function About() {
               style={{ transitionDelay: '900ms' }}
             >
               <div className="px-4 py-2 bg-black/50 backdrop-blur-sm border border-purple-500/30 rounded-full text-gray-300 hover:border-purple-500/60 transition-all duration-300 transform hover:-translate-y-1">
-                <span className="text-purple-400">6+</span> Personal Projects Built
+                <span className="text-purple-400">7+</span> Personal Projects Built
               </div>
               {/* <div className="px-4 py-2 bg-black/50 backdrop-blur-sm border border-pink-500/30 rounded-full text-gray-300 hover:border-pink-500/60 transition-all duration-300 transform hover:-translate-y-1">
                 <span className="text-pink-400">5+</span> Years Experience

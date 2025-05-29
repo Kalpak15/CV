@@ -194,13 +194,38 @@ function Skills() {
           name: "React.js", 
           icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" 
         },
-        { 
-          name: "Express.js", 
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" 
+        {
+          // name: "Express.js",
+          // // Option 1: Try the original Express icon without wordmark
+          // // icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+          // // Option 2: Alternative CDN
+          // // icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg"
+          // // Option 3: Use a different icon service
+          // icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/express.svg"
+          name: "Express.js",
+          // Option 1: Use Simple Icons which supports white/custom colors
+          // icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/express.svg"
+          
+          // Option 2: Use a white version from a different CDN
+          // icon: "https://cdn.worldvectorlogo.com/logos/express-109.svg"
+          // 
+          // Option 3: Use skill-icons which has white variants
+          icon: "https://skillicons.dev/icons?i=express"
+          
+          // Option 4: If using in CSS, you can filter the original to white
+          // icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg"
+          // Then add CSS: filter: brightness(0) invert(1);
         },
-        { 
-          name: "Tailwind CSS", 
-          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-plain.svg" 
+        {
+          name: "Tailwind CSS",
+          // Option 1: Try the original Tailwind icon
+          icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+          // Option 2: Alternative CDN
+          // icon: "https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-plain.svg"
+          // Option 3: Use simple-icons
+          // icon: "https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/tailwindcss.svg"
+          // Option 4: Direct Tailwind logo
+          // icon: "https://tailwindcss.com/_next/static/media/tailwindcss-mark.3c5441fc7a190fb1800d4a5c7f07ba4b1345a9c8.svg"
         },
         { 
           name: "Pandas", 

@@ -188,27 +188,6 @@ function Projects() {
     },
     {
       id: 3,
-      title: "Finverse – Financial Advisor",
-      description: "An intelligent financial advisory platform that uses machine learning to deliver personalized insights, helping users make informed financial decisions.",
-      features: [
-        // "AI-powered financial analysis and recommendations",
-        // "Personalized investment portfolio suggestions",
-        // "Risk assessment and goal tracking tools",
-        // "Market trend analysis and predictions",
-        // "Interactive financial planning dashboard"
-        "Developed finverse, a full-stack financial advisor app using React, Express.js, and MongoDB for personalized financial guidance.",
-        "Integrated an interactive chatbot and quiz powered by a RAG ML model to deliver tailored financial advice.",
-        "Designed a responsive React UI, ensuring an engaging and accessible user experience across devices.",
-        "Utilized MongoDB for secure and efficient storage of user data and financial interactions.",
-        "Enhanced financial literacy through AI-driven recommendations and educational content."
-      ],
-      tech: ["React.js", "Express.js","MongoDB","Flask", "Python (ML)","RAG(ML Model)","GitHub"],
-      image: "/assets/finverse.svg",
-      demoUrl: "https://finverse-frontend.onrender.com/",
-      githubUrl: "https://github.com/Kalpak15/FinVerse.git"
-    },
-    {
-      id: 4,
       title: "Resume Analyzer",
       description: "An intelligent tool that compares resumes against job requirements, highlights missing skills, and recommends learning resources to enhance applicant profiles.",
       features: [
@@ -225,9 +204,30 @@ function Projects() {
       ],
       tech: ["Python", "Flask", "HTML", "CSS", "JavaScript","Roberta(ML Model)"],
       image: "assets/resume.svg",
-      demoUrl: "https://github.com/Kalpak15/CarrierNavigator.git",
+      // demoUrl: "https://github.com/Kalpak15/CarrierNavigator.git",
       githubUrl: "https://github.com/Kalpak15/CarrierNavigator.git"
-    }    
+    } ,   
+    {
+      id: 4,
+      title: "Finverse – Financial Advisor",
+      description: "An intelligent financial advisory platform that uses machine learning to deliver personalized insights, helping users make informed financial decisions.",
+      features: [
+        // "AI-powered financial analysis and recommendations",
+        // "Personalized investment portfolio suggestions",
+        // "Risk assessment and goal tracking tools",
+        // "Market trend analysis and predictions",
+        // "Interactive financial planning dashboard"
+        "Developed finverse, a full-stack financial advisor app using React, Express.js, and MongoDB for personalized financial guidance.",
+        "Integrated an interactive chatbot and quiz powered by a RAG ML model to deliver tailored financial advice.",
+        "Designed a responsive React UI, ensuring an engaging and accessible user experience across devices.",
+        "Utilized MongoDB for secure and efficient storage of user data and financial interactions.",
+        "Enhanced financial literacy through AI-driven recommendations and educational content."
+      ],
+      tech: ["React.js", "Express.js","MongoDB","Flask", "Python (ML)","RAG(ML Model)","GitHub"],
+      image: "/assets/finverse.svg",
+      // demoUrl: "https://finverse-frontend.onrender.com/",
+      githubUrl: "https://github.com/Kalpak15/FinVerse.git"
+    },
   ];
 
   // Get initial projects or all projects when "View All" is clicked
