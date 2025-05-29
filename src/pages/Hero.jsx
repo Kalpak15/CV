@@ -438,7 +438,7 @@ function Hero() {
             style={{ transitionDelay: '1500ms' }}
           >
             <a 
-              href="https://github.com"
+              href="https://github.com/Kalpak15"
               className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/70 hover:text-white hover:border-white/50 transition-all duration-300 animate-float"
               style={{ animationDelay: '0s' }}
             >

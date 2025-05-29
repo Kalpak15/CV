@@ -256,7 +256,7 @@ function Contact() {
               <h4 className="text-gray-300 font-medium mb-4">Social Media</h4>
               <div className="flex space-x-4">
                 <a 
-                  href="https://github.com" 
+                  href="https://github.com/Kalpak15" 
                   className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center text-gray-400 hover:bg-gradient-to-r hover:from-purple-600 hover:to-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110"
                 >
                   <span className="sr-only">GitHub</span>
