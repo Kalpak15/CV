@@ -1,3 +1,5 @@
+
+
 import { useEffect, useRef, useState } from 'react';
 import { ChevronDown, Calendar, MapPin, ExternalLink, Code, Users, Award, TrendingUp } from 'lucide-react';
 
@@ -6,6 +8,7 @@ function Experience() {
   const [activeExperience, setActiveExperience] = useState(0);
   const sectionRef = useRef(null);
   const timelineRef = useRef(null);
+  const particlesRef = useRef(null); // Added for particles
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [cursorVisible, setCursorVisible] = useState(false);
 
@@ -13,56 +16,77 @@ function Experience() {
   const experiences = [
     {
       id: 1,
-      company: "Tech Solutions Inc.",
-      position: "Senior Full Stack Developer",
-      duration: "Jan 2023 - Present",
-      location: "San Francisco, CA",
-      type: "Full-time",
-      description: "Led development of scalable web applications using React, Node.js, and AWS. Implemented microservices architecture resulting in 40% improved performance.",
+      company: "Suvidha Foundation",
+      position: "Web Developer Intern",
+      duration: "Apr 2025 - Present",
+      location: "Nagpur, Maharashtra",
+      type: "Part-time",
+      description: "Built an interactive internship platform comparable to Internshala, improving student access to internship opportunities. Developed full-stack application using Flask backend with MySQL database and responsive frontend interfaces.",
       achievements: [
-        "Built and deployed 5+ production applications serving 10k+ users",
-        "Reduced application load time by 60% through optimization",
-        "Mentored 3 junior developers and led code review processes",
-        "Implemented CI/CD pipelines reducing deployment time by 75%"
-      ],
-      technologies: ["React", "Node.js", "AWS", "Docker", "MongoDB", "TypeScript"],
+            "Developed a comprehensive internship platform serving students nationwide",
+            "Implemented real-time internship listings with Flask API integration",
+            "Created responsive UI/UX design improving student engagement and accessibility",
+            "Built secure authentication and application tracking system using Flask and MySQL",
+            "Collaborated with cross-functional team to deliver intuitive navigation and user experience"
+        ],
+      technologies: ["HTML", "CSS", "JavaScript", "Flask", "MySQL", "Backend APIs", "Responsive Design"],
       current: true
-    },
-    {
-      id: 2,
-      company: "Digital Innovations Ltd.",
-      position: "Full Stack Developer",
-      duration: "Jun 2021 - Dec 2022",
-      location: "New York, NY",
-      type: "Full-time",
-      description: "Developed and maintained multiple client-facing applications using modern web technologies. Collaborated with cross-functional teams to deliver high-quality solutions.",
-      achievements: [
-        "Developed responsive web applications for 15+ clients",
-        "Integrated third-party APIs improving functionality by 50%",
-        "Optimized database queries reducing response time by 45%",
-        "Participated in agile development processes and sprint planning"
-      ],
-      technologies: ["Vue.js", "Python", "PostgreSQL", "Redis", "Django", "JavaScript"],
-      current: false
-    },
-    {
-      id: 3,
-      company: "StartupCo",
-      position: "Frontend Developer",
-      duration: "Jan 2020 - May 2021",
-      location: "Austin, TX",
-      type: "Contract",
-      description: "Worked in a fast-paced startup environment building user interfaces and implementing responsive designs. Focused on user experience and performance optimization.",
-      achievements: [
-        "Created pixel-perfect UI components from Figma designs",
-        "Improved user engagement by 35% through UX enhancements",
-        "Implemented responsive design supporting all device types",
-        "Collaborated with design team to establish component library"
-      ],
-      technologies: ["React", "Sass", "JavaScript", "Figma", "Git", "Webpack"],
-      current: false
     }
   ];
+
+  // Generate particles - same as About component
+  useEffect(() => {
+    const createParticles = () => {
+      const particlesContainer = particlesRef.current;
+      if (!particlesContainer) return;
+      
+      // Clear existing particles
+      particlesContainer.innerHTML = '';
+      
+      // Create fewer particles on mobile
+      const particleCount = window.innerWidth < 768 ? 25 : 50;
+      
+      // Create particles
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        
+        // Random position
+        const x = Math.random() * 100;
+        const y = Math.random() * 100;
+        
+        // Random size (smaller on mobile)
+        const baseSize = window.innerWidth < 768 ? 1.5 : 3;
+        const size = Math.random() * baseSize + 1;
+        
+        // Random opacity
+        const opacity = Math.random() * 0.5 + 0.3;
+        
+        // Random animation duration
+        const duration = Math.random() * 20 + 10;
+        
+        // Random animation delay
+        const delay = Math.random() * 5;
+        
+        // Set styles
+        particle.style.left = `${x}%`;
+        particle.style.top = `${y}%`;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        particle.style.opacity = opacity;
+        particle.style.animationDuration = `${duration}s`;
+        particle.style.animationDelay = `${delay}s`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    };
+    
+    createParticles();
+    
+    // Regenerate particles on resize
+    window.addEventListener('resize', createParticles);
+    return () => window.removeEventListener('resize', createParticles);
+  }, []);
 
   // Intersection Observer for animations
   useEffect(() => {
@@ -84,11 +108,13 @@ function Experience() {
     return () => observer.disconnect();
   }, []);
 
-  // Mouse tracking for custom cursor
+  // Mouse tracking for custom cursor - only on desktop
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-      setCursorVisible(true);
+      if (window.innerWidth >= 768) { // Only show cursor on desktop
+        setMousePosition({ x: e.clientX, y: e.clientY });
+        setCursorVisible(true);
+      }
     };
 
     const handleMouseLeave = () => {
@@ -116,12 +142,12 @@ function Experience() {
   return (
     <section 
       id="experience" 
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black py-20"
+      className="relative overflow-hidden bg-black py-20"
       ref={sectionRef}
     >
-      {/* Custom cursor */}
+      {/* Custom cursor - only show on desktop */}
       <div 
-        className="fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100"
+        className="fixed w-8 h-8 rounded-full pointer-events-none z-50 mix-blend-difference transition-transform duration-100 hidden md:block"
         style={{
           left: `${mousePosition.x}px`,
           top: `${mousePosition.y}px`,
@@ -131,17 +157,20 @@ function Experience() {
         }}
       ></div>
 
-      {/* Animated background */}
+      {/* Floating particles - matching About section */}
+      <div ref={particlesRef} className="absolute inset-0 overflow-hidden"></div>
+
+      {/* Animated background - updated to match About section */}
       <div className="absolute inset-0 w-full h-full">
-        <div className="animate-blurFloat absolute top-1/4 -left-10 w-96 h-96 bg-purple-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-        <div className="animate-blurFloat animation-delay-2000 absolute -bottom-24 -right-10 w-96 h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
-        <div className="animate-blurFloat animation-delay-4000 absolute top-1/3 right-1/4 w-96 h-96 bg-pink-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        <div className="animate-blurFloat absolute top-1/4 -left-10 w-48 h-48 md:w-96 md:h-96 bg-purple-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 md:opacity-30"></div>
+        <div className="animate-blurFloat animation-delay-2000 absolute -bottom-24 -right-10 w-48 h-48 md:w-96 md:h-96 bg-blue-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 md:opacity-30"></div>
+        <div className="animate-blurFloat animation-delay-4000 absolute top-1/3 right-1/4 w-48 h-48 md:w-96 md:h-96 bg-pink-700 rounded-full mix-blend-multiply filter blur-3xl opacity-20 md:opacity-30"></div>
         
-        {/* Animated grid */}
+        {/* Animated grid - updated to match About section */}
         <div className="absolute inset-0 grid-bg"></div>
       </div>
 
-      <div className="container mx-auto px-4 z-10 relative">
+      <div className="container mx-auto px-4 z-10 relative flex flex-col justify-center min-h-[80vh]">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 
@@ -297,14 +326,20 @@ function Experience() {
         </div>
       </div>
 
-      {/* Custom CSS */}
+      {/* Custom CSS - updated to match About section */}
       <style jsx>{`
         .grid-bg {
-          background-size: 50px 50px;
+          background-size: 30px 30px;
           background-image: 
-            linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-          mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 40%, rgba(0, 0, 0, 0) 80%);
+            linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+          mask-image: radial-gradient(circle, rgba(0, 0, 0, 1) 30%, rgba(0, 0, 0, 0) 80%);
+        }
+        
+        @media (min-width: 768px) {
+          .grid-bg {
+            background-size: 50px 50px;
+          }
         }
         
         @keyframes line-grow {
@@ -327,7 +362,7 @@ function Experience() {
         }
         
         .animate-blurFloat {
-          animation: blurFloat 20s ease-in-out infinite;
+          animation: blurFloat 15s ease-in-out infinite;
         }
         
         .animation-delay-2000 {
@@ -346,6 +381,31 @@ function Experience() {
         
         .animate-float {
           animation: float 3s ease-in-out infinite;
+        }
+        
+        .particle {
+          position: absolute;
+          background-color: white;
+          border-radius: 50%;
+          opacity: 0.3;
+          animation: float-up 15s linear infinite;
+        }
+        
+        @keyframes float-up {
+          0% { transform: translateY(100vh) translateX(0) scale(1); }
+          50% { transform: translateY(50vh) translateX(20px) scale(1.2); }
+          100% { transform: translateY(0) translateX(0) scale(0.8); opacity: 0; }
+        }
+        
+        /* Reduce animations on mobile for better performance */
+        @media (max-width: 767px) {
+          .animate-blurFloat {
+            animation-duration: 20s;
+          }
+          
+          .particle {
+            animation-duration: 20s;
+          }
         }
       `}</style>
     </section>

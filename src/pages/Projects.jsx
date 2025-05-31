@@ -162,7 +162,7 @@ function Projects() {
       tech: ["React.js", "Express.js", "MongoDB","Cloudinary","GitHub"],
       image: "assets/carpool.jpg",
       demoUrl: "https://carpooling-system-frontend.onrender.com",
-      githubUrl: "https://github.com/Kalpak15/Carpooling_system.git",
+      githubUrl: "https://github.com/Kalpak15/Ride-Buddy.git",
     },
     {
       id: 2,
@@ -184,7 +184,7 @@ function Projects() {
       tech: ["React.js", "Express.js", "MongoDB","Cloudinary","GitHub"],
       image: "assets/ddas.svg",
       demoUrl: "https://ddas-frontend.onrender.com",
-      githubUrl: "https://github.com/Kalpak15/DDAS.git"
+      githubUrl: "https://github.com/Kalpak15/ZeroDup.git"
     },
     {
       id: 3,
@@ -204,8 +204,8 @@ function Projects() {
       ],
       tech: ["Python", "Flask", "HTML", "CSS", "JavaScript","Roberta(ML Model)"],
       image: "assets/resume.svg",
-      demoUrl: "https://drive.google.com/drive/folders/1zXKwD26z9EAqZ81Z1holD22e3uyZ2JZD?usp=sharing",
-      githubUrl: "https://github.com/Kalpak15/CarrierNavigator.git"
+      demoUrl: "https://drive.google.com/file/d/1TOgjm5BXiL0E6W0AMPUEEzasQEucjrEE/view?usp=sharing",
+      githubUrl: "https://github.com/Kalpak15/ResumeForge.git"
     } ,   
     {
       id: 4,
