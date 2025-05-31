@@ -188,7 +188,7 @@ function Projects() {
     },
     {
       id: 3,
-      title: "Resume Analyzer",
+      title: "ResumeForge",
       description: "An intelligent tool that compares resumes against job requirements, highlights missing skills, and recommends learning resources to enhance applicant profiles.",
       features: [
         // "AI-powered resume parsing and skill extraction",
@@ -204,7 +204,7 @@ function Projects() {
       ],
       tech: ["Python", "Flask", "HTML", "CSS", "JavaScript","Roberta(ML Model)"],
       image: "assets/resume.svg",
-      // demoUrl: "https://github.com/Kalpak15/CarrierNavigator.git",
+      demoUrl: "https://drive.google.com/drive/folders/1zXKwD26z9EAqZ81Z1holD22e3uyZ2JZD?usp=sharing",
       githubUrl: "https://github.com/Kalpak15/CarrierNavigator.git"
     } ,   
     {
@@ -225,7 +225,7 @@ function Projects() {
       ],
       tech: ["React.js", "Express.js","MongoDB","Flask", "Python (ML)","RAG(ML Model)","GitHub"],
       image: "/assets/finverse.svg",
-      // demoUrl: "https://github.com/Kalpak15/FinVerse.git",
+      demoUrl: "https://youtu.be/85L-xdrzxLI?si=MPEoGdItJZRGxyRC",
       githubUrl: "https://github.com/Kalpak15/FinVerse.git"
     },
   ];
