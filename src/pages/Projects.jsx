@@ -196,7 +196,7 @@ function Projects() {
         // "Personalized learning resource recommendations",
         // "ATS optimization suggestions and scoring",
         // "Bulk resume processing for HR departments"
-        "Developed resumeAnalyzer, a full-stack web application with HTML, CSS, JavaScript frontend and Flask backend, powered by a RoBERTa-based ML model for resume analysis.",
+        "Developed resumeAnalyzer, a  web application with HTML, CSS, JavaScript frontend and Flask backend, powered by a RoBERTa-based ML model for resume analysis.",
         "Engineered semantic analysis to match resumes with job descriptions and skills, generating fit scores, identifying skill gaps, and recommending relevant courses.",
         "Built a dual-purpose platform for job seekers to receive tailored resume feedback and for HRs to rank candidate resumes based on job requirements.",
         "Leveraged RoBERTa NLP model for accurate text analysis, ensuring precise resume-job matching and actionable insights.",
