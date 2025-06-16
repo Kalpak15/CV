@@ -17,7 +17,7 @@ function Experience() {
     {
       id: 1,
       company: "Suvidha Foundation",
-      position: "Web Developer Intern",
+      position: "Built and deployed a full-stack internship platform for students across India, similar to Internshala. Designed a responsive user interface, integrated Flask-based APIs, and implemented secure authentication and application tracking using MySQL. Collaborated with a cross-functional team to enhance usability, engagement, and real-time access to internship listings.",
       duration: "Apr 2025 - Present",
       location: "Nagpur, Maharashtra",
       type: "Part-time",
