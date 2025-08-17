@@ -594,7 +594,7 @@ function About() {
             
             <div className={`transition-all duration-1000 ease-out ${loaded ? 'opacity-100' : 'opacity-0 translate-y-8'}`} style={{ transitionDelay: '1100ms' }}>
               <a 
-                href="https://drive.google.com/file/d/17gz1_TUjPsIOhlnf6ILcSioVk40yQquc/view?usp=sharing" 
+                href="https://drive.google.com/file/d/1r7v3Z1jrt4VysrLVmkv7YiMTeckaSbbj/view?usp=sharing" 
                 className="inline-flex items-center px-6 py-3 sm:px-8 sm:py-4 bg-gradient-to-r from-purple-600 to-blue-600 text-white font-medium rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition duration-300 transform hover:-translate-y-1 relative overflow-hidden group text-sm sm:text-base"
                 target="_blank"
                 rel="noopener noreferrer"

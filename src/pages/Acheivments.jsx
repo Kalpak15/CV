@@ -142,7 +142,7 @@ function AchievementsCertifications() {
   const achievements = [
     {
       id: 1,
-      title: "200+ Coding Problems",
+      title: "300+ Coding Problems",
       organization: "Leetode ",
       year: "2023",
       description: "Solved on LeetCode , improving algorithmic problem-solving skills.",
@@ -200,6 +200,15 @@ function AchievementsCertifications() {
       date: "Augest 2024",
       credentialId: "-",
       link: "https://drive.google.com/file/d/1-NieXb2erGc2Ojqh_4I3kRcP0l6y6102/view?usp=sharing",
+      icon: <FileCheck className="w-8 h-8 text-pink-400" />
+    },
+    {
+      id: 3,
+      title: "GDG on Campus Solution",
+      organization: "Vidyalanakar Institute Of Technology",
+      date: "April 2025",
+      credentialId: "-",
+      link: "https://drive.google.com/file/d/1GpsOf4oeKSwKt4q3OduyALX_-erRFgZG/view?usp=sharing",
       icon: <FileCheck className="w-8 h-8 text-pink-400" />
     },
     // {
