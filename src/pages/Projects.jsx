@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Github, ExternalLink, ChevronRight, Code, ChevronUp } from 'lucide-react';
 
+
 function Projects() {
   const [activeProject, setActiveProject] = useState(null);
   const [showButton, setShowButton] = useState(false);
@@ -186,8 +187,25 @@ function Projects() {
       demoUrl: "https://ddas-frontend.onrender.com",
       githubUrl: "https://github.com/Kalpak15/ZeroDup.git"
     },
+      {
+    id: 3,
+    title: "ImageFix",
+    description: "An AI-powered image and video enhancement system that transforms low-resolution or blurred media into high-quality, sharp, and visually clear outputs using the BSRGAN deep learning model.",
+    features: [
+      "Developed an end-to-end enhancement pipeline using Express.js, React, MongoDB, and the BSRGAN model for restoring image and video quality.",
+      "Implemented automated frame extraction, enhancement, and reconstruction for low-resolution video inputs, ensuring temporal consistency.",
+      "Integrated preprocessing techniques to remove noise, correct blur, and enhance contrast for improved perceptual quality.",
+      "Built a responsive and user-friendly web interface for uploading, previewing, and downloading enhanced images and videos.",
+      "Optimized model performance with GPU acceleration, achieving average enhancement times of 1.2s per image and 1.6s per video frame."
+    ],
+    tech: ["Python", "Express.js", "React", "MongoDB", "BSRGAN (AI Model)"],
+    image: "assets/imagefix.svg",
+    demoUrl: "https://drive.google.com/file/d/1rj8K_SGNAd-LIaLoKTBRLiaXhDx6_OGN/view?usp=sharing",
+    githubUrl: "https://github.com/Kalpak15/IMAGE_FIX"
+    } ,
+       
     {
-      id: 3,
+      id: 4,
       title: "ResumeForge",
       description: "An intelligent tool that compares resumes against job requirements, highlights missing skills, and recommends learning resources to enhance applicant profiles.",
       features: [
@@ -208,7 +226,7 @@ function Projects() {
       githubUrl: "https://github.com/Kalpak15/ResumeForge.git"
     } ,   
     {
-      id: 4,
+      id: 5,
       title: "Finverse – Financial Advisor",
       description: "An intelligent financial advisory platform that uses machine learning to deliver personalized insights, helping users make informed financial decisions.",
       features: [
