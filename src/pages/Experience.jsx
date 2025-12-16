@@ -32,22 +32,22 @@ function Experience() {
       technologies: ["HTML", "CSS", "JavaScript", "Flask", "MySQL", "Backend APIs", "Responsive Design"],
       current: false
     },
-    {
-      id: 1,
-      company: "InternPro",
-      position: "Web Development Intern",
-      duration: "Jun 2025 - July 2025",
-      location: "Nagpur, Maharashtra",
-      type: "Remote",
-      description: "Built a Restaurant Management System using MERN stack to manage menus, orders, and reservations with secure role-based access.",
-      achievements: [
-            "Designing and developing full-stack modules (menu, orders, reservations) using React.js, Express.js, and MongoDB as part of a Restaurant Management System.",
-            "Implementing secure RESTful APIs with JWT-based authentication, enabling role-based access control and enhancing system security by 40%.",
-            "Optimizing frontend performance by applying lazy loading and code-splitting techniques, resulting in 30% faster page loads."
-        ],
-      technologies: ["React.js", "Express.js", "MongoDB"],
-      current: false
-    }
+    // {
+    //   id: 1,
+    //   company: "InternPro",
+    //   position: "Web Development Intern",
+    //   duration: "Jun 2025 - July 2025",
+    //   location: "Nagpur, Maharashtra",
+    //   type: "Remote",
+    //   description: "Built a Restaurant Management System using MERN stack to manage menus, orders, and reservations with secure role-based access.",
+    //   achievements: [
+    //         "Designing and developing full-stack modules (menu, orders, reservations) using React.js, Express.js, and MongoDB as part of a Restaurant Management System.",
+    //         "Implementing secure RESTful APIs with JWT-based authentication, enabling role-based access control and enhancing system security by 40%.",
+    //         "Optimizing frontend performance by applying lazy loading and code-splitting techniques, resulting in 30% faster page loads."
+    //     ],
+    //   technologies: ["React.js", "Express.js", "MongoDB"],
+    //   current: false
+    // }
   ];
 
   // Generate particles - same as About component
