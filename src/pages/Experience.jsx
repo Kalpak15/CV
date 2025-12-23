@@ -21,15 +21,17 @@ function Experience() {
       duration: "Apr 2025 - Jun 2025",
       location: "Nagpur, Maharashtra",
       type: "Remote",
-      description: "Built an interactive internship platform comparable to Internshala, improving student access to internship opportunities. Developed full-stack application using Flask backend with MySQL database and responsive frontend interfaces.",
+      description: [
+            "Contributed to a job/internship portal by developing responsive UI pages using HTML, CSS, and JavaScript.",
+            "Integrated frontend with backend REST APIs for smooth and error-free data flow.",
+            "Collaborated with team members in cross-functional tasks, following Agile-like iterative development cycles.",
+            "Performed manual testing and validated APIs using Postman to ensure system reliability." ],      
       achievements: [
-            "Developed a comprehensive internship platform serving students nationwide",
-            "Implemented real-time internship listings with Flask API integration",
-            "Created responsive UI/UX design improving student engagement and accessibility",
-            "Built secure authentication and application tracking system using Flask and MySQL",
-            "Collaborated with cross-functional team to deliver intuitive navigation and user experience"
+            "Successfully implemented features that enhanced user experience and improved data handling.",
+            "Gained hands-on experience with full-stack development and cross-team collaboration.",
+            "Applied problem-solving and debugging skills to resolve frontend-backend integration issues efficiently."
         ],
-      technologies: ["HTML", "CSS", "JavaScript", "Flask", "MySQL", "Backend APIs", "Responsive Design"],
+      technologies: ["HTML", "CSS", "JavaScript", "Flask", "MySQL", "Backend APIs"],
       current: false
     },
     // {

@@ -405,7 +405,7 @@ function Projects() {
                       rel="noopener noreferrer"
                     >
                       <span className="relative z-10 flex items-center">
-                        <ExternalLink className="w-3 h-3 mr-1" /> Live Demo
+                        <ExternalLink className="w-3 h-3 mr-1" /> Demo Video
                       </span>
                       <span className="absolute inset-0 bg-gradient-to-r from-blue-600 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
                       <span className="absolute top-0 left-0 w-full h-full bg-white/30 skew-x-45 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></span>
