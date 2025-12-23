@@ -162,8 +162,8 @@ function Projects() {
       ],
       tech: ["React.js", "Express.js", "MongoDB","Cloudinary","GitHub"],
       image: "assets/carpool.jpg",
-      demoUrl: "https://carpooling-system-frontend.onrender.com",
-      githubUrl: "https://github.com/Kalpak15/Ride-Buddy.git",
+      demoUrl: "https://drive.google.com/file/d/1BmpxNQqiZ8ozP2Apft4YDueLkwT2HPup/view?usp=sharing",
+      githubUrl: "https://github.com/Kalpak15/Ride-Buddy-Project",
     },
     {
       id: 2,
@@ -184,8 +184,8 @@ function Projects() {
       ],
       tech: ["React.js", "Express.js", "MongoDB","Cloudinary","GitHub"],
       image: "assets/ddas.svg",
-      demoUrl: "https://ddas-frontend.onrender.com",
-      githubUrl: "https://github.com/Kalpak15/ZeroDup.git"
+      demoUrl: "https://drive.google.com/file/d/1dpIlLp7qPr_UdhenwIAcXxGS6aBiBqmr/view?usp=sharing",
+      githubUrl: "https://github.com/Kalpak15/ZeroDup"
     },
       {
     id: 3,
@@ -200,7 +200,7 @@ function Projects() {
     ],
     tech: ["Python", "Express.js", "React", "MongoDB", "BSRGAN (AI Model)"],
     image: "assets/imagefix.svg",
-    demoUrl: "https://drive.google.com/file/d/1rj8K_SGNAd-LIaLoKTBRLiaXhDx6_OGN/view?usp=sharing",
+    demoUrl: "https://drive.google.com/file/d/1sFJ2lwMxQWnqD8vDYza-7DCAGMr8KfiX/view?usp=sharing",
     githubUrl: "https://github.com/Kalpak15/IMAGE_FIX"
     } ,
        
