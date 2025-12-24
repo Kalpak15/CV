@@ -142,7 +142,7 @@ function AchievementsCertifications() {
   const achievements = [
     {
       id: 1,
-      title: "300+ Coding Problems",
+      title: "400+ Coding Problems",
       organization: "Leetode ",
       year: "2023",
       description: "Solved on LeetCode , improving algorithmic problem-solving skills.",

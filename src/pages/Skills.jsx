@@ -274,6 +274,29 @@ function Skills() {
         }
       ]
     },
+    {
+  category: "Cloud & DevOps",
+  icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg",
+  items: [
+    
+    { 
+      name: "Linux", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" 
+    },
+    { 
+      name: "Shell Script", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" 
+    },
+    { 
+      name: "Docker", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" 
+    },
+    { 
+      name: "Jenkins", 
+      icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" 
+    }
+  ]
+},
     // {
     //   category: "Platforms",
     //   icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/google/google-original.svg",
